@@ -2,6 +2,7 @@ body {
     position: relative;
     margin: 0px;
     min-height: 100%;
+    padding-bottom: 6rem;
 }
 
 .top_bar {
@@ -36,6 +37,19 @@ html {
 a:hover {
     text-decoration: underline;
     color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: #2d3e50;
+}
+
+.icon-bar {
+    background-color: #fff !important;
 }
 
 
