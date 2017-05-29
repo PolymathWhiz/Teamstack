@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default navbar-fixed-top top_bar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'CodeZen', root_path, class: "navbar-brand brand_text" %>
+    </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="nav_li">
+            <%= link_to 'Home', root_path, class: "nav_link_text" %>
+          </li>
+          <li class="nav_li">
+            <%= link_to 'About', about_path, class: "nav_link_text" %>
+          </li>
+          <li class="nav_li">
+            <%= link_to 'Contact', contact_path, class: "nav_link_text" %>
+          </li>
+          <li class="nav_li">
+            <%= link_to 'Join as a company', root_path, class: "nav_link_text" %>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav_li">
+            <%= link_to 'Login', root_path, class: "nav_link_text" %>
+          </li>
+          <li class="nav_li"> 
+            <%= link_to 'Register', about_path, class: "nav_link_text" %>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>

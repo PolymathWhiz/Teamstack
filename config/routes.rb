@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
-  get 'contacts/new'
 
-  get 'pages/home'
+  root to: 'pages#home'
 
-  get 'pages/about'
+  get '/about', to: 'pages#about'
+  get '/privacy', to: 'pages#privacy'
+  get '/terms', to: 'pages#terms'
+  get '/information', to: 'pages#information'
 
-  get 'pages/privacy'
-
-  get 'pages/terms'
-
-  get 'pages/information'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # Routes to the contacts controller
+  get '/contact', to: 'contacts#new'
+  post '/contact', to: 'contacts#create'
 end
