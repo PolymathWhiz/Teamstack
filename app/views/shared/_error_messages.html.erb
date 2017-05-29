@@ -12,14 +12,20 @@
     <div id="error_explanation">
 
       <div class="alert alert-danger" role="alert">
-        <strong>Oh snap!</strong> This form contains <%= pluralize(object.errors.count, "error") %>.
+        <strong>Ouch!</strong> This form contains <%= pluralize(object.errors.count, "error") %>.
       </div>
         <ul>
           <% object.errors.full_messages.each do |msg| %>
             <li>
-              <span style="font-size: 12px; font-weight: bold;"> <%= msg %> </span>
+              <span style="font-size: 12px;"> <%= msg %> </span>
             </li>
           <% end %>
       </ul>
     </div>
   <% end %>
+
+  <script>
+    $(function(){
+      var name = document.getElementByID()
+    });
+  </script>
