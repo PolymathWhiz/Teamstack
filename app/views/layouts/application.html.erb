@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodeZen</title>
+    <title>
+      <%= full_title(yield(:title)) %>
+    </title>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <%= render 'shared/head_additions' %>
   </head>
 
   <body>

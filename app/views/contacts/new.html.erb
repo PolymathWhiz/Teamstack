@@ -1,2 +1,54 @@
-<h1>Contacts#new</h1>
-<p>Find me in app/views/contacts/new.html.erb</p>
+<% provide(:title, "Contact us")%>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="page-header">
+                <h1>Contact Us <small>We want to hear from you</small></h1>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-6">
+                    <%= form_for(@contact, url: contact_path) do |f| %>
+
+                    <%= render 'shared/error_messages', object: f.object%>
+                    
+                    <%= render 'shared/flash_message'%>
+
+                        <div class="form-group">
+                                <label for="contact_name">Full Name<span class="span_form"> *</span></label>
+                                <%= f.text_field :name, class: "form-control", placeholder: "John Doe", required: false %>
+                        </div>
+                        <div class="form-group">
+                                <label for="contact_email">Email<span class="span_form"> *</span></label>
+                                <%= f.email_field :email, class: "form-control", placeholder: "john@doe.com", required: false %>
+                        </div>
+                        <div class="form-group">
+                                <label for="contact_subject">Subject<span class="span_form"> *</span></label>
+                                <%= f.text_field :subject, class: "form-control", placeholder: "Subject", required: false, maxlength: 50 %>
+                        </div>
+                        <div class="form-group">
+                           <label for="contact_message">Message<span class="span_form"> *</span></label>
+                            <%= f.text_area :message, class: "form-control", 
+                                                      placeholder: "Type your message here", 
+                                                      maxlength: 200, rows: 7, required: false %>
+                            <small class="span_form">200 characters max</small>
+                        </div>
+                        <%= f.submit "Send", class: "btn btn-primary btn-block" %>
+                </div>
+                <div class="col-offset-2"></div>
+                <div class="col-md-6">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Panel title</h3>
+                        </div>
+                        <div class="panel-body">
+                          Panel content
+                        </div>
+                  </div>
+                </div>
+        </div>
+    </div>
+<% end %>
