@@ -12,8 +12,8 @@
     <div id="error_explanation">
 
       <div class="alert alert-danger" role="alert">
-        <strong>Ouch!</strong> This form contains <%= pluralize(object.errors.count, "error") %>.
-      </div>
+         <%= pluralize(object.errors.count, "error") %> prohibited this form from being sent.
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <ul>
           <% object.errors.full_messages.each do |msg| %>
             <li>
@@ -21,11 +21,13 @@
             </li>
           <% end %>
       </ul>
+      </div>
     </div>
   <% end %>
 
   <script>
     $(function(){
-      var name = document.getElementByID()
+      var name = document.getElementByID();
     });
   </script>
+

@@ -1,10 +1,18 @@
 <% provide(:title, "Contact us")%>
 
     <div class="container" style="margin-top: -10px;">
+      <div class="row">
+            <div class="col-md-12">
+              <div class="page-header">
+                <h1 class="breadcrumb"> Contact Us </h1>
+              </div>
+            </div>
+      </div>
+
         <div class="row">
             <div class="col-md-6">
               <div class="page-header">
-                <h1>Contact Us <small>We want to hear from you</small></h1>
+                <h2>New Message <small>We're here to help you</small></h2>
               </div>
             </div>
         </div>
@@ -36,9 +44,11 @@
                                                       maxlength: 200, rows: 7, required: false %>
                             <small class="span_form">200 characters max</small>
                         </div>
-                        <%= f.submit "Send", class: "btn btn-primary btn-block" %>
+                        <%= f.submit "Send Message", class: "btn btn-primary" %>
+                  <% end %>
                 </div>
                 <div class="col-md-1"></div>
+
                 <!-- FAQ starts here -->
                 <div class="col-md-5">
                       <div class="panel panel-default">
@@ -52,4 +62,3 @@
                 </div>
         </div>
     </div>
-<% end %>

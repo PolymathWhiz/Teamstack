@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      flash[:success] = "Thank you for contacting us"
+      flash[:success] = "Thank you for contacting us!"
       redirect_back fallback_location: contact_path
     else
       render 'new'
