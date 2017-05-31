@@ -1,33 +1,17 @@
-
 <% if object.errors.any? %>
-<style>
-  #error_explanation {
-      color: red;
-      ul {
-          color: red;
-          margin: 0 0 30px 0;
-      }
-  }
-</style>
+
     <div id="error_explanation">
 
       <div class="alert alert-danger" role="alert">
-         <%= pluralize(object.errors.count, "error") %> prohibited this form from being sent.
+         <span style="font-size: 15px;"> <%= pluralize(object.errors.count, "error") %> prohibited this form from being sent. </span>
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <ul>
           <% object.errors.full_messages.each do |msg| %>
             <li>
-              <span style="font-size: 12px;"> <%= msg %> </span>
+              <span style="font-size: 13px;"> <%= msg %> </span>
             </li>
           <% end %>
       </ul>
       </div>
     </div>
-  <% end %>
-
-  <script>
-    $(function(){
-      var name = document.getElementByID();
-    });
-  </script>
-
+<% end %>
