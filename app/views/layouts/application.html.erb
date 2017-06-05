@@ -16,8 +16,10 @@
     <% end %>
 
     <%= yield %>
-
-      <%#= debug(params) if Rails.env.development? %>
+    
+    <div style="margin-top: 30px;">
+      <%= debug(params) if Rails.env.development? %>      
+    </div>
 
     <%= render 'shared/footer' %>
 

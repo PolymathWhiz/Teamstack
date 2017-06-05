@@ -1,7 +1,12 @@
-<div class="container">
+<div class="container" style="margin-top: -20px;">
 	<div class="row">
 		<div class="col-md-5 col-md-offset-4">
-				<h2 class="text-center auth_header">Join CodeZen</h2>
+			<h1 class="page-header text-center auth_header" style="font-family: Helvetica;"> CodeZen </h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-md-offset-4">
+				<h4 class="text-center text-uppercase"> Register </h4>
 
 				<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 			   	
@@ -22,9 +27,12 @@
 								<%= f.label :password_confirmation %><br />
 								<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
 							</div>
-								<%= f.submit "Register", class: "btn btn-success btn-block" %>
+								<%= f.submit "Register", class: "btn btn-success btn-block text-uppercase" %>
 				<% end %>
-						<%= render "devise/shared/links" %>
+				
+					<div class="links">
+						Already have an account? <%= render "devise/shared/links" %>
+					</div>
 			</div>
 		</div>
 </div>

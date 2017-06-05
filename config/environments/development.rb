@@ -51,4 +51,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # This is used to send password recovery email on localhost
+  config.action_mailer.default_url_options = { host: '127.0.0.1', port: 3000 }
 end
