@@ -8,6 +8,8 @@
 	</div>
 	<div class="row">
 		<div class="col-md-5 col-md-offset-4">
+		<div class="card-box">
+		
 				<h4 class="text-center text-uppercase"> Register </h4>
 
 				<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -31,7 +33,8 @@
 							</div>
 								<%= f.submit "Register", class: "btn btn-success btn-block text-uppercase" %>
 				<% end %>
-				
+
+	</div> <!-- End cardbox-->			
 					<div class="links">
 						Already have an account? <%= render "devise/shared/links" %>
 					</div>
