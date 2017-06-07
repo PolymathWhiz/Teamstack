@@ -12,8 +12,15 @@
 
   <body class="<%= controller_name %> <%= controller.action_name %>">
   
-    <% if controller_name == "pages" || controller_name == "contacts" %>
-      <%= render 'shared/header' %>  
+    <% unless controller_name == "sessions" || controller_name == "registrations" && controller.action_name == "new" || controller_name == "passwords" %>
+      <% if user_signed_in? %>
+        <%= render 'shared/usernav' %>
+      <% else %>
+
+      <%= render 'shared/header' %> 
+      
+      <% end %> 
+    
     <% end %>
 
     <%= yield %>
@@ -21,7 +28,8 @@
     <% if controller_name == "pages" || controller_name == "contacts" %>
         <div style="margin-top: 30px;">
       <%= debug(params) if Rails.env.development? %>      
-    </div>  
+    </div>
+      
     <% end %>
     
     
