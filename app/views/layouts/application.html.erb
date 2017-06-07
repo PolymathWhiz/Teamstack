@@ -18,11 +18,17 @@
 
     <%= yield %>
     
-    <div style="margin-top: 30px;">
+    <% if controller_name == "pages" || controller_name == "contacts" %>
+        <div style="margin-top: 30px;">
       <%= debug(params) if Rails.env.development? %>      
-    </div>
-
-    <%= render 'shared/footer' %>
+    </div>  
+    <% end %>
+    
+    
+    <% if controller_name == "pages" || controller_name == "contacts" %>
+        <%= render 'shared/footer' %>
+    <% end %>
+    
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
