@@ -1,3 +1,8 @@
+<style>
+    #navBarSearchForm input[type=text]{width:250px !important;}
+</style>
+
+
 <nav class="navbar navbar-default navbar-fixed-top top_bar">
   <div class="container">
     <div class="navbar-header">
@@ -29,7 +34,7 @@
                 <li><a href="#">One more separated link</a></li>
             </ul>
           </li>
-          <form class="navbar-form navbar-left hidden-sm hidden-xs" role="search">
+          <!--<form class="navbar-form navbar-left hidden-sm hidden-xs" role="search">
           <%#= 
             form_for(), html: { class: "navbar-form navbar-left hidden-sm hidden-xs", role: "search" } do |f| 
           %>
@@ -37,9 +42,20 @@
               <input type="text" class="form-control" placeholder="Search by profession or location... ">
             </div>
             <%#= f.submit "Search", class: "btn btn-default" %>
-          </form>
+          </form> -->
           <%# end %>
         </ul>
+
+         <div class="col-sm-3 col-md-3 hidden-sm hidden-xs">
+        <form class="navbar-form" role="search" id="navBarSearchForm">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search..." name="q">
+            <div class="input-group-btn">
+                <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
