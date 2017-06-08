@@ -25,22 +25,7 @@
     <div class="card-box">
       <h2 class="page-header text-center text-uppercase m-t-t">Login</h2>
 
-    <% if notice != nil %>
-					<div class="alert alert-info">
-						<button type="button" class="close" data-dismiss="alert">
-							&times;
-						</button>
-						<%= notice %>
-					</div>
-		<% end %>
-				<% if flash[:alert] %>
-					<div class="alert alert-danger">
-						<button type="button" class="close" data-dismiss="alert">
-							&times;
-						</button>
-						<%= flash[:alert] %>
-					</div>
-		  	<% end %>
+      <%= render 'shared/devise_flash' %>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">

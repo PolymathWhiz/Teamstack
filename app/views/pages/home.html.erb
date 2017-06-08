@@ -2,6 +2,8 @@
 
 <h1>Find me in Pages#Home</h1>
 
+<%= render 'shared/devise_flash' %>
+
 <% if user_signed_in? %>
   
     Logged in as <strong><%= current_user.email %></strong>.
