@@ -57,6 +57,37 @@ a:hover {
 }
 
 
+/* user nav */
+
+#nav_search input[type=text] {
+    width: 250px !important;
+}
+
+.btn-zen {
+    background-color: #3774b5;
+}
+
+i.glyphicon.glyphicon-search {
+    color: #fff;
+}
+
+.navbar-login {
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session {
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size {
+    font-size: 87px;
+}
+
+
 /* Form aspect */
 
 .field_with_errors .help-block,
