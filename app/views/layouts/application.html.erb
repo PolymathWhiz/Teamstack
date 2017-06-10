@@ -11,7 +11,11 @@
   </head>
 
   <body class="<%= controller_name %> <%= controller.action_name %>">
-  
+
+    <noscript>
+      <h1 style="color: red;" class="text-center">This platform requires JavaScript activated.</h1>
+    </noscript>
+
     <% unless controller_name == "sessions" || controller_name == "registrations" && 
               controller.action_name == "new" || controller_name == "passwords" %>
       

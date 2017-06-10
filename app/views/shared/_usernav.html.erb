@@ -82,15 +82,17 @@
                             </div>
                         </li>
                         <li class="divider navbar-login-session-bg"></li>
-                         <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-                         <li class="divider"></li>
+                        <li> <a href="<%= edit_user_registration_path %>">Account Settings 
+                              <span class="glyphicon glyphicon-cog pull-right"></span></a>
+                        </li>
+                        <li class="divider"></li>
                         <li>
                           <a href="#">Favourites <span class="glyphicon glyphicon-heart pull-right"></span> </a>
                         </li>
-                          <li class="divider"></li>
-                          <li>
-                            <a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a>
-                          </li>
+                        <li class="divider"></li>
+                        <li>
+                          <a href="<%= destroy_user_session_path %>" data-method="delete" rel="nofollow" >Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a>
+                        </li>
                   </ul>
                 </li>
             </ul>

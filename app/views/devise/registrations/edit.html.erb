@@ -1,48 +1,107 @@
 <% provide(:title, "Edit Profile") %>
 
-<h2>Edit My profile settings <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  
-  <%= render 'shared/error_messages', object: f.object %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <h2>Editing My Profile Information</h2>
+    </div>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <div class="row">
+    <div class="col-md-4 hidden-sm hidden-xs">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Personal settings</h3>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item"> <%= link_to 'Profile settings', edit_user_registration_path %> </li>
+          <li class="list-group-item">Connections</li>
+          <li class="list-group-item">Account Log</li>
+        <!--  <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li> -->
+        </ul>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    <div class="col-md-5 col-md-offset-1">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+        <div class="form-group">
+          <%= f.label :password, "New password" %> 
+          <% if @minimum_password_length %>
+            <i>(<%= @minimum_password_length %> characters minimum)</i>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          <p class="help-block">
+            leave blank if you don't want to change it
+          </p>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, "Confirm new password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <div class="page-header" style="margin-top: 10px;"></div>
+
+        <div class="form-group">
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+          <p class="help-block">we need your current password to confirm your changes</p>
+        </div>
+        
+        <div class="breadcrumb" style="margin-top: 25px; margin-bottom: 25px;">
+
+          <%= f.submit "Save Changes", class: "btn btn-primary" %> 
+          
+          <!-- Add link here-->
+          <button type="button" class="btn btn-default" style="margin-left: 20px;">Back</button>
+          
+        </div>
+
+      <% end %>
+
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">Delete Account</h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            Unhappy with CodeZen? You can delete your account at any time. Unfortunately, this process can not be undone.
+            
+            <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%>
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <%= image_tag 'logo.svg', alt: "yaay" %>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<!-- Use a panel here -->
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
