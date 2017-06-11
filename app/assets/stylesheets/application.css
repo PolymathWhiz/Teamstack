@@ -16,7 +16,7 @@
  */
 
 body {
-    font-family: "Roboto", Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Open Sans', "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     padding-top: 70px !important;
     /* background-color: #0d426d; */
     /*min-height: 2000px;*/
