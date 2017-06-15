@@ -88,6 +88,13 @@ i.glyphicon.glyphicon-search {
 }
 
 
+/* User Profile */
+
+.btn_cancel {
+    margin-left: 20px;
+}
+
+
 /* Form aspect */
 
 .field_with_errors .help-block,
