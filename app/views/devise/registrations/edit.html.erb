@@ -12,13 +12,25 @@
 
     <div class="col-md-5 col-md-offset-1">
 
-    <h2 class="user_header" style="margin-bottom: 20px;">Profile settings 
+    <h2 class="user_header text-center m-b-20">Profile settings 
        <span class="btn btn-default user_header">Basic</span>
     </h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       
         <%= render 'shared/error_messages', object: f.object %>
+
+       <!-- 
+        <div class="col-md-6 col-md-offset-1 user_header m-t-50 hidden-lg hidden-md">
+        
+          <%#= gravatar_for current_user, size: 50 %>
+            
+          <div class="pull-right">
+            <a class="btn btn-default" href="">Change Gravatar</a>
+          </div>
+        </div>
+
+        -->
 
         <div class="form-group">
           <%= f.label :first_name %>
@@ -65,8 +77,8 @@
         
         <div class="breadcrumb" style="margin-top: 25px; margin-bottom: 25px;">
 
-          <%= f.submit "Update profile", class: "btn btn-success" %> 
-        
+          <%= f.submit "Update profile", class: "btn btn-primary" %>
+      
           <%= link_to 'Cancel', root_path, class: "btn btn-default btn_cancel" %>
           
         </div>
@@ -88,9 +100,15 @@
       </div>
     </div>
 
-    <div class="col-md-2">
-      <%= image_tag 'logo.svg', alt: "user gravatar", class: "img-circle" %>
-      <p>The image is above here</p>
+    <div class="col-md-2 col-md-offset-1 user_header m-t-50 hidden-sm hidden-xs">
+      
+      <h3>Gravatar</h3>
+      
+     <center class="text-center"> <%= gravatar_for current_user, size: 50 %> </center>
+      
+      <div class="change_gravatar">
+        <a class="btn btn-default" href="">Change Gravatar</a>
+      </div>
     </div>
   </div>
 </div>

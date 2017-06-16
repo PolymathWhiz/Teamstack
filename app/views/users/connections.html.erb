@@ -7,50 +7,50 @@
     </div>
   </div>
 
-  <%= render 'shared/personal_settings' %>
+  <div class="row">
+    <%= render 'shared/personal_settings' %>
 
-    <div class="col-md-5 col-md-offset-1">
+    <div class="col-md-6 col-md-offset-1">
 
-    <h2 class="user_header" style="margin-bottom: 20px;">Profile settings 
-       <span class="btn btn-default user_header">Connections</span>
-    </h2>
+      <h2 class="user_header text-center" style="margin-bottom: 20px;">Profile settings 
+        <span class="btn btn-default user_header">Connections</span>
+      </h2>
 
-      <%= form_for(current_user, url: users_connections_path , html: { method: :put }) do |ff| %>
+      <%= form_for(current_user, url: users_connections_path , html: { method: :put }) do |f| %>
       
-        <%= render 'shared/error_messages', object: ff.object %>
+        <%= render 'shared/error_messages', object: f.object %>
 
         <div class="form-group">
-          <%= ff.label :bio %>
-          <%= ff.text_area :bio, class: "form-control", 
-                                 placeholder: "Tell us some mouthwatering details about yourself in 250 characters. It may be helpful to include some things you have done previously.", maxlength: 250, rows: 4 
+          <%= f.label :bio %>
+          <%= f.text_area :bio, class: "form-control", 
+                                 placeholder: "Tell us some mouthwatering things about yourself. It may be helpful to include some things you have done previously.", maxlength: 250, rows: 4 
           %>
+          <small class="help-block">In fewer than 250 characters.</small>
         </div>
 
-        <%= ff.label :location%>
-        <div class="form-inline">          
-          <div class="form-group col-xs-6">
-            <%= ff.text_field :city, class: "form-control", placeholder: "City" %>
-          </div>
+        <h3 class="page-header user_header">Location <small>This will help people find you</small></h3>
 
-          <div class="col-xs-6">
-            <%= ff.text_field :state, class: "form-control", placeholder: "State" %>
-          </div>
+        <div class="form-group">
+          <%= f.label :city %>
+          <%= f.text_field :city, class: "form-control"%>
+        </div>
 
-          <div class="col-xs-4">
-            <%= ff.select :country, options_for_select(countries, current_user.country), 
-                                    { prompt: "Select Country" }, class: "form-control country_select" 
-            %>
-          </div>
+        <div class="form-group">
+          <%= f.label :state %>
+          <%= f.text_field :state, class: "form-control"%>
+        </div>
 
+        <div class="form-group">
+          <%= f.label :country %>
+          <%= f.select :country, options_for_select(countries, current_user.country), { prompt: "Select Country" }, class: "form-control country_select" %>
         </div>
 
         <div class="clearfix"></div>
-        
-        <div class="breadcrumb" style="margin-top: 45px;">
+        <div class="breadcrumb">
 
-          <%= ff.submit "Update connections", class: "btn btn-success" %> 
+         <%= f.submit "Update profile", class: "btn btn-primary" %> 
         
-          <%= link_to 'Cancel', root_path, class: "btn btn-default btn_cancel" %>
+         <%= link_to 'Cancel', root_path, class: "btn btn-default btn_cancel" %>
           
         </div>
 
