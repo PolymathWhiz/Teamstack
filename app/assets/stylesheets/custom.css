@@ -10,8 +10,8 @@ body {
 /* Navbar */
 
 .top_bar {
-    background-color: #2d3e50;
-    border-color: #2d3e50;
+    background-color: #061338;
+    border-color: #061338;
 }
 
 .brand_text {
@@ -49,7 +49,7 @@ a:hover {
 
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
-    background-color: #2d3e50;
+    background-color: #061338;
 }
 
 .icon-bar {
@@ -64,7 +64,13 @@ a:hover {
 }
 
 .btn-zen {
-    background-color: #3774b5;
+    color: #fff;
+    background-color: #003366;
+}
+
+.btn-zen:hover {
+    color: #fff;
+    background-color: #061338;
 }
 
 i.glyphicon.glyphicon-search {
@@ -88,7 +94,15 @@ i.glyphicon.glyphicon-search {
 }
 
 
+<<<<<<< HEAD
 /* User Profile */
+=======
+/* User profile */
+
+.user_header {
+    font-family: 'Open Sans'
+}
+>>>>>>> connections
 
 .btn_cancel {
     margin-left: 20px;

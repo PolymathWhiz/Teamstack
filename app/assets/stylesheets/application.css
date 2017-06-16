@@ -11,12 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require font-awesome
  *= require_self
  */
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Open Sans', "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     padding-top: 70px !important;
     /* background-color: #0d426d; */
     /*min-height: 2000px;*/

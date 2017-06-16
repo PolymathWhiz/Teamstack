@@ -2,7 +2,7 @@
 
 <style>
   body {
-    background-color: #0d426d;
+    background-color: #061338;
   }
 
 	.logo {
@@ -45,7 +45,11 @@
 								<%= f.label :password_confirmation %><br />
 								<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
 							</div>
-								<%= f.submit "Register", class: "btn btn-success btn-block text-uppercase" %>
+								<%= f.submit "Register", class: "btn btn-zen btn-block" %>
+
+								<p class="help-block user_header" style="margin-top:20px;">
+									By clicking on "Register" I agree to CodeZen <%= link_to 'Terms', terms_path %> and <%= link_to 'Privacy policy', privacy_path %>.
+								</p>
 				<% end %>
 
 	</div> <!-- End cardbox-->			

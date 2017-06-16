@@ -14,5 +14,10 @@ Rails.application.routes.draw do
 
   # Routes to users controller
   devise_for :users
+
+  devise_scope :users do
+    get 'users/connections', to: 'users#connections'
+    resources :users, only: [:update]
+  end
   
 end
