@@ -37,7 +37,9 @@
           </div>
 
           <div class="col-xs-4">
-            <%= ff.text_field :country, class: "form-control", placeholder: "Country" %>
+            <%= ff.select :country, options_for_select(countries, current_user.country), 
+                                    { prompt: "Select Country" }, class: "form-control country_select" 
+            %>
           </div>
 
         </div>
