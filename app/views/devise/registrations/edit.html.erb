@@ -3,25 +3,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 text-center">
-      <h2>Editing My Profile Information</h2>
+      <h2 class="user_header page-header" style="margin-top: 0px;">Editing My Profile Information</h2> 
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-4 hidden-sm hidden-xs">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Personal settings</h3>
-        </div>
-        <ul class="list-group">
-          <li class="list-group-item"> <%= link_to 'Profile settings', edit_user_registration_path %> </li>
-          <li class="list-group-item">Connections</li>
-          <li class="list-group-item">Account Log</li>
-        </ul>
-      </div>
-    </div>
+    <%= render 'shared/personal_settings' %>
 
     <div class="col-md-5 col-md-offset-1">
+
+    <h2 class="user_header" style="margin-bottom: 20px;">Profile settings 
+       <span class="btn btn-default user_header">Basic</span>
+    </h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       
