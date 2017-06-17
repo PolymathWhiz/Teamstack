@@ -60,10 +60,14 @@
         
         <div class="breadcrumb" style="margin-top: 25px; margin-bottom: 25px;">
 
-          <%= f.submit "Update profile", class: "btn btn-primary" %>
-      
-          <%= link_to 'Cancel', root_path, class: "btn btn-default btn_cancel" %>
-          
+          <%= f.submit "Update profile", class: "btn btn-primary" %> 
+
+          <%= link_to 'Connections settings', root_path, class: "btn btn-info btn_cancel hidden-md hidden-lg hidden-xs" %>
+
+          <%= link_to 'Connections', root_path, class: "btn btn-info btn_cancel hidden-md hidden-lg hidden-sm" %>
+
+          <%= link_to 'Cancel', root_path, class: "btn btn-default btn_cancel hidden-xs" %>
+        
         </div>
 
       <% end %>

@@ -1,17 +1,18 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:update, :account_log]
+  before_action :set_user, only: [:update, :dashboard]
 
   def connections; end
 
-  # def account_log
-  #   @last_sign_in = @user.last_sign_in_at
-  #   @sign_in_count = @user.sign_in_count
-  # end
+  def dashboard
+    @last_sign_in = @user.last_sign_in_at
+    @sign_in_count = @user.sign_in_count
+    @created_at = @user.created_at
+  end
 
   def update
     if @user.update(user_params)
-      flash[:success] = "Your account has been updated successfully."
+      flash[:success] = "Your profile has been updated successfully."
       redirect_to root_path
     else
       render 'connections'
