@@ -22,9 +22,9 @@ $.rails.showConfirmationDialog = function(link) {
     var message = link.data("confirm");
     swal({
         title: message,
-        text: "All your account details will be deleted.",
+        text: "Your account and all of its related data will be permanently deleted. This action cannot be undone.",
         type: 'warning',
-        confirmButtonText: 'Delete account',
+        confirmButtonText: 'Yes, delete account',
         confirmButtonColor: '#d9534f',
         showCancelButton: true,
     }).then(function(e) {

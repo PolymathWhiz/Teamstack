@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   devise_scope :users do
     get 'users/connections', to: 'users#connections'
+    get 'users/dashboard', to: 'users#dashboard'
     resources :users, only: [:update]
   end
   
