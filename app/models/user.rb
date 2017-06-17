@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_save :capitalize_firstname, :capitalize_lastname
+  before_save :capitalize_fields, :lower_case_fields
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -7,15 +7,21 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :bio, length: { maximum: 250 }
-  validates :first_name, :last_name, length: { maximum: 255 }
+  validates :first_name, :last_name, length: { maximum: 50 }
 
   private 
 
-  def capitalize_firstname
+  def capitalize_fields
     first_name.capitalize!
+    last_name.capitalize!
+    city.capitalize!
+    state.capitalize!
   end
 
-  def capitalize_lastname
-    last_name.capitalize!
+  def lower_case_fields
+    website.downcase!
+    twitter.downcase!
+    linkedin.downcase!
+    github.downcase!
   end
 end
