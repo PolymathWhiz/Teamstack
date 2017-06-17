@@ -1,4 +1,9 @@
 module UsersHelper
+
+  def avaliability
+    [ ['Avaliable for work', true], ['Not avaliable for work', false] ]
+  end
+
   def countries
     
     [

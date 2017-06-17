@@ -45,11 +45,12 @@
 								<%= f.label :password_confirmation %><br />
 								<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
 							</div>
-								<%= f.submit "Register", class: "btn btn-zen btn-block" %>
 
-								<p class="help-block user_header" style="margin-top:20px;">
-									By clicking on "Register" I agree to CodeZen <%= link_to 'Terms', terms_path %> and <%= link_to 'Privacy policy', privacy_path %>.
-								</p>
+							<small class="help-block" style="margin-top:20px; margin-bottom: 10px;">
+									By clicking on <b>"Register"</b> I agree to CodeZen <%= link_to 'Terms of service', terms_path, class: "forgot_link" %> and <%= link_to 'Privacy policy', privacy_path, class: "forgot_link" %>.
+							</small>
+
+								<%= f.submit "Register", class: "btn btn-zen btn-block" %>
 				<% end %>
 
 	</div> <!-- End cardbox-->			
