@@ -1,19 +1,16 @@
 <% provide(:title, "Edit Profile") %>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 text-center">
-      <h2 class="user_header page-header" style="margin-top: 0px;">Editing My Connection Information</h2>
-    </div>
-  </div>
+
+  <%= render 'shared/flash_message' %>
 
   <div class="row">
     <%= render 'shared/personal_settings' %>
 
-    <div class="col-md-6 col-md-offset-1">
+    <div class="col-md-5 col-md-offset-1">
 
-      <h2 class="user_header text-center" style="margin-bottom: 20px;">Profile settings 
-        <span class="btn btn-default user_header">Connections</span>
+      <h2 class="user_header text-center" style="margin-bottom: 20px;">Personal settings 
+        <span class="btn btn-default user_header">Connection settings</span>
       </h2>
 
       <%= form_for(current_user, url: users_connections_path , html: { method: :put }) do |f| %>
@@ -23,12 +20,31 @@
         <div class="form-group">
           <%= f.label :bio %>
           <%= f.text_area :bio, class: "form-control", 
-                                 placeholder: "Tell us some mouthwatering things about yourself. It may be helpful to include some things you have done previously.", maxlength: 250, rows: 4 
+                                 placeholder: "Tell us some mouthwatering things about yourself in fewer than 250 characters. It may be helpful to include some things you have done previously.", maxlength: 250, rows: 4 
           %>
-          <small class="help-block">In fewer than 250 characters.</small>
         </div>
 
-        <h3 class="page-header user_header">Location <small>This will help people find you</small></h3>
+         <div class="form-group">
+          <%= f.label :website %>
+          <%= f.text_field :website, class: "form-control", placeholder: "https://www.example.com"%>
+        </div>
+
+         <div class="form-group">
+          <%= f.label :twitter %>
+          <%= f.text_field :twitter, class: "form-control", placeholder: "Twitter username"%>
+        </div>
+
+         <div class="form-group">
+          <%= f.label :linkedin, "LinkedIn" %>
+          <%= f.text_field :linkedin, class: "form-control", placeholder: "Profile url"%>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :github, "GitHub" %>
+          <%= f.text_field :github, class: "form-control", placeholder: "Github username"%>
+        </div>
+
+        <h3 class="page-header user_header">Location <small>This will help people find you better</small></h3>
 
         <div class="form-group">
           <%= f.label :city %>
@@ -44,6 +60,13 @@
           <%= f.label :country %>
           <%= f.select :country, options_for_select(countries, current_user.country), { prompt: "Select Country" }, class: "form-control country_select" %>
         </div>
+
+        <div class="form-group">
+          <%= f.label :avaliable %>
+          <%= f.select :avaliable, options_for_select(avaliability, current_user.avaliable?), { prompt: "Select status" }, class: "form-control country_select" %>
+        </div>
+
+        <%= current_user.avaliable? %>
 
         <div class="clearfix"></div>
         <div class="breadcrumb">

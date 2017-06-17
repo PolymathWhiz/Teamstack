@@ -1,36 +1,19 @@
 <% provide(:title, "Edit Profile") %>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 text-center">
-      <h2 class="user_header page-header" style="margin-top: 0px;">Editing My Profile Information</h2> 
-    </div>
-  </div>
 
   <div class="row">
     <%= render 'shared/personal_settings' %>
 
     <div class="col-md-5 col-md-offset-1">
 
-    <h2 class="user_header text-center m-b-20">Profile settings 
-       <span class="btn btn-default user_header">Basic</span>
+    <h2 class="user_header text-center m-b-20">Personal settings 
+       <span class="btn btn-default user_header">Basic settings</span>
     </h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       
         <%= render 'shared/error_messages', object: f.object %>
-
-       <!-- 
-        <div class="col-md-6 col-md-offset-1 user_header m-t-50 hidden-lg hidden-md">
-        
-          <%#= gravatar_for current_user, size: 50 %>
-            
-          <div class="pull-right">
-            <a class="btn btn-default" href="">Change Gravatar</a>
-          </div>
-        </div>
-
-        -->
 
         <div class="form-group">
           <%= f.label :first_name %>
@@ -107,7 +90,10 @@
      <center class="text-center"> <%= gravatar_for current_user, size: 50 %> </center>
       
       <div class="change_gravatar">
-        <a class="btn btn-default" href="">Change Gravatar</a>
+        <a class="btn btn-default" href="http://gravatar.com/emails" 
+           target="_blank" rel="noopener">Change Gravatar
+        </a>
+        <p class="help-block">You'll be redirected to change your Gravatar</p>
       </div>
     </div>
   </div>

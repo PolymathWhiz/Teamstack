@@ -4,6 +4,8 @@
 
 <%= render 'shared/devise_flash' %>
 
+<%= render 'shared/flash_message'%>
+
 <% if user_signed_in? %>
   
     Logged in as <strong><%= current_user.email %></strong>.
