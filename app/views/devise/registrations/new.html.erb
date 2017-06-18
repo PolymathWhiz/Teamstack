@@ -2,7 +2,7 @@
 
 <style>
   body {
-    background-color: #061338;
+		background-color: #0c2944;
   }
 
 	.logo {
@@ -46,11 +46,11 @@
 								<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
 							</div>
 
-							<small class="help-block" style="margin-top:20px; margin-bottom: 10px;">
-									By clicking on <b>"Register"</b> I agree to CodeZen <%= link_to 'Terms of service', terms_path, class: "forgot_link" %> and <%= link_to 'Privacy policy', privacy_path, class: "forgot_link" %>.
-							</small>
-
 								<%= f.submit "Register", class: "btn btn-zen btn-block" %>
+
+								<p class="auth_help" style="margin-top:20px; margin-bottom: 10px;">
+									By clicking on <b>"Register"</b> I agree to CodeZen <%= link_to 'Terms', terms_path, class: "forgot_link" %> and <%= link_to 'Privacy policy', privacy_path %>.
+							</p>
 				<% end %>
 
 	</div> <!-- End cardbox-->			
