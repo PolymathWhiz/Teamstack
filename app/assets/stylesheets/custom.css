@@ -6,6 +6,17 @@ body {
     /* Helps with making footer show after error */
 }
 
+.text_white {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.625rem;
+}
+
+.m-t-14 {
+    margin-top: 14px;
+}
+
 
 /* Navbar */
 
@@ -97,7 +108,7 @@ i.glyphicon.glyphicon-search {
 /* User profile */
 
 .user_header {
-    font-family: "Open Sans", BlinkMacSystemFont, -apple-system, Segoe UI, "Roboto", Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", 'Helvetica', "Roboto", BlinkMacSystemFont, -apple-system, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif;
 }
 
 .btn_cancel {
@@ -106,6 +117,11 @@ i.glyphicon.glyphicon-search {
 
 .change_gravatar {
     margin-top: 20px;
+}
+
+.main_page {
+    margin-top: -20px;
+    background-color: blue !important;
 }
 
 
@@ -223,6 +239,10 @@ a.auth_links:hover {
     color: #797979;
 }
 
+.danger {
+    color: red;
+}
+
 
 /* Footer Styles */
 
@@ -239,7 +259,7 @@ a.auth_links:hover {
 .footer_text {
     color: #337ab7;
     font-size: 14px;
-    font-family: 'Rubik';
+    font-family: 'Rubik', 'Helvetica';
 }
 
 .footer_li a:hover {
@@ -249,6 +269,6 @@ a.auth_links:hover {
 
 .footer_copyright {
     color: #777;
-    font-family: 'Rubik';
+    font-family: 'Rubik', 'Helvetica';
     font-size: 14px;
 }

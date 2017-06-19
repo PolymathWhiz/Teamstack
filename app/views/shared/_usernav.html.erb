@@ -35,41 +35,45 @@
         </ul>
 
          <div class="col-sm-3 col-md-3 hidden-sm hidden-xs hidden-md">
-        <form class="navbar-form" role="search" id="nav_search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search..." name="q">
-            <div class="input-group-btn">
-                <button class="btn btn-zen" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            <form class="navbar-form" role="search" id="nav_search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search..." name="q">
+                <div class="input-group-btn">
+                    <button class="btn btn-zen" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
             </div>
+            </form>
         </div>
-        </form>
-    </div>
 
        <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="<%= root_path %>" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user"></i>
-                        <%= current_user.first_name %> <%= current_user.last_name %>
-                        <span class="caret"></span>
+                    <a href="<%= root_path %>" class="dropdown-toggle" data-toggle="dropdown">  
+                      <span class="user-avatar pull-left" style="margin-right:8px; margin-top:-5px;">
+                       <%= gravatar_for_nav current_user, size: 50 %>
+                      </span>
+                      <span class="user-name">
+                        <%= truncate_user_name(30) %>
+                      </span>
+                      <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                          <%= link_to 'Dashboard', root_path %>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                          <%= link_to 'Basic settings', edit_user_registration_path %>
-                        </li>
-                        <li>
-                          <%= link_to 'Connection settings', edit_user_registration_path %>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                          <a href="<%= destroy_user_session_path %>" data-method="delete" rel="nofollow" >Sign Out </a>
-                        </li>
-                  </ul>
-                </li>
-            </ul>
+                    <ul class="dropdown-menu" style="margin-top: 2px;">
+                      <li>
+                        <%= link_to 'Dashboard', root_path %>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <%= link_to 'Basic settings', edit_user_registration_path %>
+                      </li>
+                      <li>
+                        <%= link_to 'Connection settings', edit_user_registration_path %>
+                      </li>
+                      <li class="divider"></li>
+                <li>
+                        <a href="<%= destroy_user_session_path %>" data-method="delete" rel="nofollow" >Sign Out </a>
+                     </li>
+              </ul>
+            </li>
+        </ul>
       </div>
   </div>
 </nav>

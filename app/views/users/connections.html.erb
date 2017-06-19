@@ -20,8 +20,10 @@
         <div class="form-group">
           <%= f.label :bio %>
           <%= f.text_area :bio, class: "form-control", 
-                                 placeholder: "Tell us some mouthwatering things about yourself in fewer than 250 characters. It may be helpful to include some things you have done previously.", maxlength: 250, rows: 4 
+                                 placeholder: "Tell us some mouthwatering things about yourself. It may be helpful to include some things you have done previously.", maxlength: 250, rows: 4 
           %>
+          <small>Max: 250 characters</small>
+          <small id="counter" class="pull-right"></small>
         </div>
 
          <div class="form-group">
