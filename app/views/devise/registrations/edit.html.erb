@@ -62,12 +62,12 @@
 
           <%= f.submit "Update profile", class: "btn btn-primary" %> 
 
-          <%= link_to 'Connections settings', root_path, class: "btn btn-info btn_cancel hidden-md hidden-lg hidden-xs" %>
+          <%= link_to 'Connections settings', users_connections_path, class: "btn btn-info btn_cancel hidden-md hidden-lg hidden-xs" %>
 
-          <%= link_to 'Connections', root_path, class: "btn btn-info btn_cancel hidden-md hidden-lg hidden-sm" %>
+          <%= link_to 'Connections', users_connections_path, class: "btn btn-info btn_cancel hidden-md hidden-lg hidden-sm" %>
 
-          <%= link_to 'Cancel', root_path, class: "btn btn-default btn_cancel hidden-xs" %>
-        
+          <%= link_to 'Cancel', users_dashboard_path, class: "btn btn-default btn_cancel hidden-xs" %>
+          
         </div>
 
       <% end %>
