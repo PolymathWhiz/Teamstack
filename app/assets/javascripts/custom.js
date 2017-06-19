@@ -41,3 +41,14 @@ $(document).on('turbolinks:render', function() {
     NProgress.done();
     NProgress.remove();
 });
+
+// Character Counter
+$(document).ready(function() {
+    $("#user_bio").on('keyup paste', function() {
+
+        var characters = $("#user_bio").val().length;
+        var totalCharacters = 250;
+
+        $("#counter").text((totalCharacters - characters) + " characters left.");
+    });
+});

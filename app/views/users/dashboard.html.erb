@@ -1,6 +1,17 @@
-<div class="jumbotron">
+<div class="jumbotron main_page">
   <div class="container-fluid">
-    <h1>User Jumbotron!</h1>
-    <p>Contents ...</p>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+       <center>
+         <%= gravatar_for_profile current_user, size: 50 %> <br>
+         <p>
+          <span class="text_white m-t-14 text_name">
+            <%= truncate_user_name(30) %>
+          </span>
+         </p>
+       </center>
+      </div>
+    </div>
   </div>
 </div>
+

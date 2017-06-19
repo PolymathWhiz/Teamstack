@@ -12,4 +12,18 @@ module ApplicationHelper
     image_tag(gravatar_url, alt: current_user.email + " gravatar", width: 130, height: 80, 
                             class: "img-responsive img-rounded")
   end
+
+  def gravatar_for_nav(user, size: 80)
+    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+    image_tag(gravatar_url, alt: current_user.email + "'s gravatar", width: 30, height: 30, 
+                            class: "img-responsive img-circle")
+  end
+
+  def gravatar_for_profile(user, size: 80)
+    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+    image_tag(gravatar_url, alt: current_user.email + "'s gravatar", width: 90, height: 90, 
+                            class: "img-circle")
+  end
 end

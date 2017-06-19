@@ -10,14 +10,16 @@
     <%= render 'shared/head_additions' %>
   </head>
 
-  <body class="<%= controller_name %> <%= controller.action_name %>">
+  <body class="<%= controller.action_name %>">
 
     <noscript>
       <h1 style="color: red;" class="text-center">This platform requires JavaScript activated.</h1>
     </noscript>
 
-    <% unless controller_name == "sessions" || controller_name == "registrations" && 
-              controller.action_name == "new" || controller_name == "passwords" %>
+    <% unless controller_name == "sessions" || 
+              controller_name == "registrations" && 
+              controller.action_name == "new" || 
+              controller_name == "passwords" %>
       
       <% if user_signed_in? %>
         <%= render 'shared/usernav' %>
@@ -29,21 +31,26 @@
 
     <%= yield %>
     
-    <% if controller_name == "pages" || controller_name == "contacts" %>
+    <% if controller_name == "pages" || 
+          controller_name == "contacts" %>
+        
         <div style="margin-top: 30px;">
             <%= debug(params) if Rails.env.development? %>      
         </div>
     <% end %>
     
     
-    <% unless controller_name == "sessions" || controller_name == "registrations" && 
-              controller.action_name == "new" || controller_name == "passwords" %>
+    <% unless controller_name == "sessions" || 
+              controller_name == "registrations" && 
+              controller.action_name == "new" || 
+              controller_name == "passwords" %>
               
           <%= render 'shared/footer' %>
+          
     <% end %>
     
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-eval' => false %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
   </body>
 </html>
