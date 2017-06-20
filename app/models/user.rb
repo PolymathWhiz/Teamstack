@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # before_save :capitalize_fields, :lower_case_fields if commit == 'update'
+  # before_save :capitalize_fields, :lower_case_fields
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
