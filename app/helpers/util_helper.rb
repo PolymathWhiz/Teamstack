@@ -28,7 +28,7 @@ module UtilHelper
 
   def member_time
     since = current_user.created_at.to_date.to_s(:long)
-    return "Member since: #{since}"
+    return "Member since #{since}"
   end
 
   def bio
