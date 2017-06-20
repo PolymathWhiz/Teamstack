@@ -2,20 +2,75 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-      <div class="pull-right">
+        <div class="pull-right">
         <a class="btn btn-default" title="Edit profile">
           <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
         </a>
       </div>
-       <center>
-          <%= gravatar_for_profile current_user, size: 50 %> <br>
-          <span class="m-t-14 text_name">
-            <%= truncate_user_name(30) %>
-          </span>
-          <div class="text_email">
-            <%= current_user.email %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+          <div style="avatar_holder"> 
+            <%= gravatar_for_profile current_user, size: 50 %> 
+          </div> <br>
+          <div class="info_wrapper">
+            <% if current_user.first_name || current_user.last_name != nil %>
+              <span class="m-t-14 text_name text_white">
+                <%= truncate_user_name(30) %>
+              </span>
+            <% end %> 
+            <% if !current_user.first_name.blank? || !current_user.last_name.blank? %>
+              <div class="text_email text_white">
+                <%= current_user.email %>
+              </div>
+            <% end %>
+
+            <% unless current_user.bio.blank? %>
+              <div class="bio_wrapper m-t-14">
+                <span class="text_white"> <%= bio %> </span>
+              </div>    
+            <% end %>
+
+            <% if !current_user.twitter.blank? || 
+                  !current_user.website.blank? || 
+                  !current_user.github.blank? || 
+                  !current_user.linkedin.blank?  %>
+
+              <div class="links">
+                <% if !current_user.twitter.blank? %>
+                  <a href="https://www.twitter.com/<%= current_user.twitter%>" class="web_links" target="_blank" title="Twitter">
+                    <i class="fa fa-twitter-square fa-lg"></i>
+                  </a>
+                <% end %>
+                <% if !current_user.twitter.blank? %>
+                  <a href="<%= current_user.website%>" class="web_links" target="_blank" title="Website">
+                    <i class="fa fa-link fa-lg"></i>
+                  </a>  
+                <% end %>
+                <% if !current_user.github.blank? %>
+                  <a href="https://www.github.com/<%= current_user.twitter%>" class="web_links" target="_blank" title="GitHub">
+                    <i class="fa fa-github-square fa-lg"></i>
+                  </a>  
+                <% end %>
+                <% if !current_user.linkedin.blank? %>
+                  <a href="https://www.linkedin.com/<%= current_user.linkedin%>" class="web_links" target="_blank" title="LinkedIn">
+                    <i class="fa fa-linkedin-square fa-lg"></i>
+                  </a>
+                <% end %>  <br>
+      
+                <div class="m-t-14">
+                  <span class="text_white "> 
+                    <i class="fa fa-map-marker fa-lg"></i>
+                    <%= city %><%= state %><%= country %>
+                  </span>
+                </div>
+              </div>
+            <% end %> 
+            <div class="member text_white">
+                  <%= member_time %>
+            </div>
           </div>
-       </center>
       </div>
     </div>
   </div>

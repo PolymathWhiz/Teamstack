@@ -23,7 +23,7 @@ module ApplicationHelper
   def gravatar_for_profile(user, size: 80)
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-    image_tag(gravatar_url, alt: current_user.email + "'s gravatar", width: 90, height: 90, 
-                            class: "img-responsive img-circle custom_img")
+    image_tag(gravatar_url, alt: current_user.email + " gravatar", width: 90, height: 90, 
+                            class: "img-responsive center-block img-circle custom_img")
   end
 end
