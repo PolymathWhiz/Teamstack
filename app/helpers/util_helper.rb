@@ -36,6 +36,6 @@ module UtilHelper
   end
 
   def number_formatter(number)
-     number_to_human(number, :format => '%n%u', :units => { :thousand => 'K', :million => 'M', :billion => 'B', :trillion => 't' }) unless number == nil 
+     number_to_human(number, :format => '%n%u', :units => { :thousand => 'K', :million => 'M', :billion => 'B', :trillion => 'T' }) unless number == nil 
   end
 end
