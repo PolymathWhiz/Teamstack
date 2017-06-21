@@ -2,13 +2,16 @@ class User < ApplicationRecord
   before_save :capitalize_fields, :lower_case_fields
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :lockable
 
   validates :bio, length: { maximum: 250 }
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
   validates :website, length: { maximum: 200 }
+
+  acts_as_followable
+  acts_as_follower
 
   private 
 
