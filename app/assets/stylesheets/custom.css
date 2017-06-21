@@ -212,7 +212,31 @@ a.web_links {
     color: #ffffff !important;
 }
 
-.stat {}
+.profile_label {
+    margin-right: 10px;
+    color: #657786;
+    font-size: 15px;
+}
+
+.profile_value {
+    font-weight: 500;
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.profile_label,
+.profile_value {
+    color: #657786;
+}
+
+a>.profile_value:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+.m-b-10 {
+    margin-bottom: -10px;
+}
 
 
 /* Form aspect */
