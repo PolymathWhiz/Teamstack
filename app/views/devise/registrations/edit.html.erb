@@ -28,6 +28,7 @@
         <div class="form-group">
           <%= f.label :email %>
           <%= f.email_field :email, class: "form-control" %>
+          <p class="help-block">Other users won't see this</p>
         </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

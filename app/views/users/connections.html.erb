@@ -49,6 +49,7 @@
         <div class="form-group">
           <%= f.label :avaliable, "Availability" %>
           <%= f.select :avaliable, options_for_select(avaliability, current_user.avaliable?), { prompt: "Select status" }, class: "form-control country_select" %>
+          <p class="help-block">When set to "Avaliable for work", a contact button will be displayed on your profile.</p>
         </div>
 
         <h3 class="page-header user_header">Location <small>This will help people find you better</small></h3>

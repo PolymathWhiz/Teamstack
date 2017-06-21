@@ -24,12 +24,13 @@
             <a href="#" class="dropdown-toggle nav_link_text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
               <ul class="dropdown-menu">
             <li><a href="#">Information</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="#">Terms of service</a></li>
+                <li><a href="#">News and Blog</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Feedback</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="<%= users_dashboard_path %>">Dashboard</a></li>
+                <li><a href="<%= users_connections_path %>"> Edit Profile</a></li>
             </ul>
           </li>
         </ul>
@@ -57,14 +58,14 @@
                     </a>
                     <ul class="dropdown-menu" style="margin-top: 2px;">
                       <li>
-                        <%= link_to 'Dashboard', users_dashboard_path %>
+                        <%= link_to 'Your dashboard', users_dashboard_path %>
                       </li>
                       <li class="divider"></li>
                       <li>
-                        <%= link_to 'Basic settings', edit_user_registration_path %>
+                        <%= link_to 'Edit basic settings', edit_user_registration_path %>
                       </li>
                       <li>
-                        <%= link_to 'Connection settings', users_connections_path %>
+                        <%= link_to 'Edit connection settings', users_connections_path %>
                       </li>
                       <li class="divider"></li>
                 <li>
