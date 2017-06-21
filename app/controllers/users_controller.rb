@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = "Your profile has been updated successfully."
-      redirect_to root_path
+      redirect_to users_dashboard_path
     else
       render 'connections'
     end

@@ -206,7 +206,13 @@ a.web_links {
     margin-top: 10px;
 }
 
-.bio_wrapper {}
+.btn_contact {
+    margin-top: 35px;
+    margin-bottom: -15px;
+    color: #ffffff !important;
+}
+
+.stat {}
 
 
 /* Form aspect */
