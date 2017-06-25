@@ -12,51 +12,51 @@
     <div class="row">
       <div class="col-md-12">
           <div style="avatar_holder"> 
-            <%= gravatar_for_profile current_user, size: 50 %> 
+            <%= gravatar_for_profile @user, size: 50 %> 
           </div> <br>
           <div class="info_wrapper">
               <span class="m-t-14 text_name text_white">
-                <%= truncate_user_name(30) %>
+                <%= truncate_user_name(@user.first_name, @user.last_name, 30) %>
               </span>
 
               <div class="text_email text_white">
-                <%= current_user.email %>
+                <%= @user.email %>
               </div>
 
-            <% unless current_user.bio.blank? %>
+            <% unless @user.bio.blank? %>
               <div class="m-t-14">
                 <span class="text_white"> <%= bio %> </span>
               </div>    
             <% end %>
 
-            <% if !current_user.twitter.blank? || 
-                  !current_user.website.blank? || 
-                  !current_user.github.blank? || 
-                  !current_user.linkedin.blank?  %>
+            <% if !@user.twitter.blank? || 
+                  !@user.website.blank? || 
+                  !@user.github.blank? || 
+                  !@user.linkedin.blank?  %>
 
               <div class="links">
-                <% if !current_user.twitter.blank? %>
-                  <a href="https://www.twitter.com/<%= current_user.twitter%>" class="web_links" target="_blank" title="Twitter">
+                <% if !@user.twitter.blank? %>
+                  <a href="https://www.twitter.com/<%= @user.twitter%>" class="web_links" target="_blank" title="Twitter">
                     <i class="fa fa-twitter-square fa-lg fa-fw"></i>
                   </a>
                 <% end %>
-                <% if !current_user.twitter.blank? %>
-                  <a href="<%= current_user.website%>" class="web_links" target="_blank" title="Website">
+                <% if !@user.twitter.blank? %>
+                  <a href="<%= @user.website%>" class="web_links" target="_blank" title="Website">
                     <i class="fa fa-link fa-lg fa-fw"></i>
                   </a>  
                 <% end %>
-                <% if !current_user.github.blank? %>
-                  <a href="https://www.github.com/<%= current_user.twitter%>" class="web_links" target="_blank" title="GitHub">
+                <% if !@user.github.blank? %>
+                  <a href="https://www.github.com/<%= @user.twitter%>" class="web_links" target="_blank" title="GitHub">
                     <i class="fa fa-github-square fa-lg fa-fw"></i>
                   </a>  
                 <% end %>
-                <% if !current_user.linkedin.blank? %>
-                  <a href="https://www.linkedin.com/<%= current_user.linkedin%>" class="web_links" target="_blank" title="LinkedIn">
+                <% if !@user.linkedin.blank? %>
+                  <a href="https://www.linkedin.com/<%= @user.linkedin%>" class="web_links" target="_blank" title="LinkedIn">
                     <i class="fa fa-linkedin-square fa-lg fa-fw"></i>
                   </a>
                 <% end %>  <br>
                 
-                <% if !current_user.city.blank? || !current_user.state.blank? || !current_user.country.blank? %>
+                <% if !@user.city.blank? || !@user.state.blank? || !@user.country.blank? %>
                   <div class="m-t-14">
                     <span class="text_white "> 
                       <i class="fa fa-map-marker fa-lg fa-fw"></i>
@@ -71,9 +71,9 @@
                   <%= member_time %>
             </div>
             
-            <button type="button" class="btn btn-lg btn-outline btn-primary btn_contact" title="Contact <%= current_user.first_name %>"> 
+            <button type="button" class="btn btn-lg btn-outline btn-primary btn_contact" title="Contact <%= @user.first_name %>"> 
               <i class="fa fa-envelope fa-fw"></i>
-              Contact <%= current_user.first_name %>
+              Contact <%= @user.first_name %>
             </button>
           </div>
       </div>
@@ -92,18 +92,18 @@
       <div class="col-md-12">  
         <ul class="list-inline col-md-8 m-b-10">
           <li>
-            <a href="#">
+            <a href="<%= following_user_path(@user) %>">
               <span class="profile_label">Following</span> <br>
                 <span class="profile_value">
-                  <%= number_formatter(1200000000) %>
+                  <%= number_formatter(@following) %>
               </span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="<%= followers_user_path(@user) %>">
               <span class="profile_label">Followers</span> <br>
               <span class="profile_value">
-                <%= number_formatter(3820000) %>
+                <%= number_formatter(@followers) %>
               </span>
             </a>
           </li>

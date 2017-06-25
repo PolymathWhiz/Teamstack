@@ -1,7 +1,7 @@
 module ApplicationHelper
   # Sets the title of all pages
   def full_title(page_title)
-    base_title = "CodeZen"
+    base_title = "LinkZen"
     page_title.empty? ? base_title : "#{base_title} - #{page_title}"
   end
 
@@ -23,7 +23,7 @@ module ApplicationHelper
   def gravatar_for_profile(user, size: 80)
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-    image_tag(gravatar_url, alt: current_user.email + " gravatar", width: 90, height: 90, 
+    image_tag(gravatar_url, alt: @user.email + " gravatar", width: 90, height: 90, 
                             class: "img-responsive center-block img-circle custom_img")
   end
 end

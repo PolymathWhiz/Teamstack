@@ -15,7 +15,7 @@
             <%= link_to 'Home', root_path, class: "nav_link_text" %>
           </li>
           <li class="nav_li">
-            <%= link_to 'Dashboard', users_dashboard_path, class: "nav_link_text" %>
+            <%= link_to 'Dashboard', user_dashboard_path(current_user), class: "nav_link_text" %>
           </li>
           <li class="nav_li">
             <%= link_to 'Information', information_path, class: "nav_link_text" %>
@@ -29,7 +29,7 @@
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Feedback</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="<%= users_dashboard_path %>">Dashboard</a></li>
+                <li><a href="<%= user_dashboard_path(current_user) %>">Dashboard</a></li>
                 <li><a href="<%= users_connections_path %>"> Edit Profile</a></li>
             </ul>
           </li>
@@ -52,13 +52,13 @@
                        <%= gravatar_for_nav current_user, size: 50 %>
                       </span>
                       <span class="user-name text_white">
-                        <%= truncate_user_name(30) %>
+                        <%= truncate_user_name(current_user.first_name, current_user.last_name, 30) %>
                       </span>
                       <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" style="margin-top: 2px;">
                       <li>
-                        <%= link_to 'Your dashboard', users_dashboard_path %>
+                        <%= link_to 'Your dashboard', user_dashboard_path(current_user) %>
                       </li>
                       <li class="divider"></li>
                       <li>
