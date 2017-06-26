@@ -21,11 +21,11 @@ class UsersController < ApplicationController
   end
 
   def following
-    @friends = @user.all_following #.paginate(page: params[:page])
+    @following = @user.all_following #.paginate(page: params[:page])
   end
 
   def followers
-    @followers = @user.all_follows #.paginate(page: params[:page])
+    @followers = @user.followers #.paginate(page: params[:page])
   end
 
   def update

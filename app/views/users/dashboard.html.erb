@@ -63,7 +63,7 @@
                   <div class="m-t-14">
                     <span class="text_white "> 
                       <i class="fa fa-map-marker fa-lg fa-fw"></i>
-                      <%= city %><%= state %><%= country %>
+                      <%= city(@user) %><%= state(@user) %><%= country(@user) %>
                     </span>
                   </div>  
                 <% end %>
@@ -93,7 +93,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">  
-        <ul class="list-inline col-md-8 m-b-10">
+        <ul class="list-inline col-md-6 m-b-10">
           <li>
             <a href="<%= following_user_path(@user) %>">
               <span class="profile_label">Following</span> <br>
@@ -111,7 +111,7 @@
             </a>
           </li>
         </ul>
-        <span class="pull-right">Software Developer, Marketer, Student</span>
+        <span class="pull-right col-md-4 hidden-xs hidden-sm"> <b> Software Developer, Marketer, Student </b> </span>
       </div>
     </div>
   </div>

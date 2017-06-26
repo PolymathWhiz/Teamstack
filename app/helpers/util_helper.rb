@@ -4,18 +4,18 @@ module UtilHelper
     truncate(name, length: length)
   end
 
-  def city
-    city = @user.city
+  def city(user)
+    city = user.city
     return "#{city}" if !city.blank?
   end
 
-  def state
-    state = @user.state
+  def state(user)
+    state = user.state
     return ", #{state}" if !state.blank?
   end
 
-  def country
-    country = @user.country 
+  def country(user)
+    country = user.country 
     return ", #{country}." if !country.blank?
   end
 

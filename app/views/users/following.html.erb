@@ -1,11 +1,67 @@
-<div class="row">
- 
-  <div class="col-lg-6 well">
-    <h3>Friends</h3>
-    <%#= render 'shared/flash_message' %>
-    <hr>
-    <div id="friends">
-      <%= render(@friends) || render('shared/no_resource', resources: 'Friends') %>
-    </div>
+<div class="container">
+  <div class="row">
+    <h1 class="page-header text-center m-t-14">Following <small> Total: <%= @following.count%> </small></h1>
+  </div>
+  <div class="row">
+  <% if @following.count > 0 %>
+    <% @following.each do |f|%>
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div id="user-<%= f.id %>">
+            <div class="card">
+              <!--<canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>-->
+              <div class="avatar">
+                <%= gravatar_for_profile f, size: 50 %> 
+              </div>
+              <hr>
+              <div class="content">
+                <p class="text_white m-t-14"> 
+                  <%= truncate_user_name(f.first_name, f.last_name, 50) %>
+                </p>
+
+                <p class="text_white m-t-14">
+                  <%= f.bio %>
+                </p>
+
+                <p class="text_white m-t-14">
+                  Software Developer
+                </p>
+
+                <% if !f.city.blank? || !f.state.blank? || !f.country.blank? %>
+                  <p class="text_white m-t-14">
+                    <i class="fa fa-map-marker fa-lg fa-fw"></i>
+                    <%= city(f) %> <%= state(f) %> <%= country(f) %> 
+                  </p>
+                <% end %>
+
+
+                <div class="follow m-t-14">
+                <% if !is_current_user?(f) %>
+                
+                  <% if f.followed_by?(current_user) %>
+                    <%= form_tag unfollow_path(user_id: f.id), method: :post, remote: true do %>
+                      <%= button_tag 'unfollow', class: 'btn btn-primary' %>
+                    <% end %>
+                  <% else %>
+                    <%= form_tag follow_path(user_id: f.id), method: :post, remote: true do %>
+                      <%= button_tag 'follow', class: 'btn btn-success' %>
+                    <% end %>
+                  <% end %>
+
+                  <% else %>
+                    <p class="btn btn-success"> This is your account </p>
+                <% end %>
+                </div>
+                
+                  <a href="<%= user_dashboard_path(f) %>" class="btn btn-outline btn-primary btn-block btn-lg" style="margin-top:20px;">
+                    <span class="text_white"> View Dashboard </span>
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+     <% end %>
+    <% else %>
+    <%= render('shared/no_resource', resources: 'Following') %>
+    <% end %>
   </div>
 </div>
