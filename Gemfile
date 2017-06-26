@@ -5,10 +5,28 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Authentication libraries
 gem 'devise'
+
+# JS alert libraries
 gem 'sweetalert2'
+
+# Generating fake data
 gem 'faker', '1.6.6'
+
+# Helps solve turbolinks problems
 gem 'jquery-turbolinks'
+
+# For following/followers feature
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+
+# Files attachments
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+
+# For pagination
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
 # Use jquery as the JavaScript library

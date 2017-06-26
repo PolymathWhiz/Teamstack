@@ -12,15 +12,7 @@
 
   <body class="<%= controller.action_name %>">
 
-  <noscript>
-      <h1 style="color: red; margin-top: 30px;" class="text-center">This platform requires JavaScript activated.</h1>
-      
-      <style type="text/css">
-        .container {
-          display: none;
-        }
-      </style>
-    </noscript>
+  <%= render 'shared/noscript' %>
 
 
     <% unless controller_name == "sessions" || 

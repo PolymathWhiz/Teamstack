@@ -23,8 +23,9 @@ body {
 }
 
 .brand_text {
-    font-size: 24px;
+    font-size: 22px;
     color: #fff !important;
+    font-weight: 500;
 }
 
 .nav_link_text {

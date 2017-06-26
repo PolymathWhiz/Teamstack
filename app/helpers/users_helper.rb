@@ -1,5 +1,9 @@
 module UsersHelper
 
+  def is_current_user?(user)
+    user == current_user
+  end
+  
   def avaliability
     [ ['Avaliable for work', true], ['Not avaliable for work', false] ]
   end

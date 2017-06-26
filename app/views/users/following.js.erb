@@ -1,0 +1,3 @@
+$('#friends').append("<%= j render(@following) %>");
+
+<%= render 'shared/paginate', resources: @following %>

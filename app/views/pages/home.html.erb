@@ -10,7 +10,7 @@
     <p> Welcome to Codezen </p>
 <% end %>
   
-    Logged in as <strong><%= truncate_user_name(30) %></strong>.
+    Logged in as <strong><%= truncate_user_name(current_user.first_name, current_user.last_name, 30) %></strong>.
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 
