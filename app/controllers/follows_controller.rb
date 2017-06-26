@@ -4,11 +4,7 @@ class FollowsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    if current_user.follow(@user)
-      flash[:success] = "User followed"
-    else 
-      flash[:danger] = "Unable to follow user"
-    end
+    current_user.follow(@user)
   end
 
   def destroy

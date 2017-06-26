@@ -3,9 +3,12 @@
     <div class="row" style="margin-top: -15px;">
       <div class="col-md-12">
         <div class="pull-right">
-        <a href="<%= edit_user_registration_path %>" class="btn btn-primary btn-outline" title="Edit profile">
-          <i class="fa fa-cog fa-2x" aria-hidden="true" style="color:#fff;"></i>
-        </a>
+        <% if is_current_user?(@user) %>
+          <a href="<%= edit_user_registration_path %>" class="btn btn-primary btn-outline" title="Edit profile">
+            <i class="fa fa-cog fa-2x" aria-hidden="true" style="color:#fff;"></i>
+          </a>
+        <% end %>
+        
       </div>
       </div>
     </div>
