@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h1 class="page-header text-center m-t-14">Following <small> Total: <%= @following.count%> </small></h1>
+    <h1 class="page-header text-center m-t-14">Following <small> Total: <%= @count %> </small></h1>
   </div>
   <div class="row">
   <% if @following.count > 0 %>
@@ -64,4 +64,5 @@
     <%= render('shared/no_resource', resources: 'Following') %>
     <% end %>
   </div>
+  <%= paginate @following %>
 </div>

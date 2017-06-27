@@ -13,8 +13,6 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_follower
 
-  # self.per_page = 10
-
   private 
 
   def normalize_fields
