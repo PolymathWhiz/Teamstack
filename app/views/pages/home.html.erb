@@ -15,3 +15,8 @@
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 
 <% end %>
+
+<%= form_tag(users_path, :method => "get", class: "navbar-form") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+             <%= submit_tag "Search", :name => nil %>
+          <% end %>

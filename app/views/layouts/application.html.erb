@@ -17,7 +17,9 @@
 
     <% unless controller_name == "sessions" || 
               controller_name == "registrations" && 
-              controller.action_name == "new" || 
+              controller.action_name == "new" ||
+              controller_name == "registrations" &&
+              controller.action_name == "create" ||  
               controller_name == "passwords" %>
       
       <% if user_signed_in? %>
@@ -42,6 +44,8 @@
     <% unless controller_name == "sessions" || 
               controller_name == "registrations" && 
               controller.action_name == "new" || 
+              controller_name == "registrations" &&
+              controller.action_name == "create" ||
               controller_name == "passwords" %>
               
           <%= render 'shared/footer' %>
