@@ -1,7 +1,7 @@
 module ApplicationHelper
   # Sets the title of all pages
   def full_title(page_title)
-    base_title = "LinkZen"
+    base_title = "Teamstack"
     page_title.empty? ? base_title : "#{base_title} - #{page_title}"
   end
 

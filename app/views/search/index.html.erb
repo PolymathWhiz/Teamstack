@@ -1,17 +1,47 @@
-<% provide(:title, "Followers") %>
+<% provide(:title, "Search") %>
+
+<div class="container-fluid"> 
+  <div class="row">
+    <div class="col-md-12" style="margin-bottom: 30px;">
+      <h1 class="user_header text-center" style="margin-bottom: 20px;">Advanced search 
+        <small>Fill out all fields</small>
+      </h1>
+    </div>
+   <%= form_tag(search_index_path, :method => "get") do %>
+    <div class="col-md-8">
+      <div class="form-group">
+       <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for people or skill", maxlength: 30 %>
+      </div>
+    </div>
+
+    <div class="col-md-2 col-sm-12 col-xs-12">
+      <div class="form-group">
+        <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "City", maxlength: 30 %>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <%= submit_tag "Search", name: nil, class: "btn btn-success btn-block" %>
+    </div>
+   <% end %>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
-    <h1 class="page-header text-center m-t-14">Followers <small>Total: <%= @count %></small></h1>
-  </div>
-  <div class="row">
-  <% if @followers.count > 0 %>
-
-    <% @followers.each do |f|%>
-        <div class="col-md-3 col-sm-4 col-xs-12">
+    <div class="col-md-12" style="margin-bottom: 20px;">
+    <% if !@search.blank? || @total > 0%>    
+		    <h4 class="m-t-14">
+          About <%= pluralize(number_with_delimiter(@total),"result")%> were found for the term:  
+          <span class="text-danger"> <%= @term %></span>
+          <span class="text-danger pull-right hidden-xs"> Search Duration: <%= convert_millisecond_to_second(@time) %> </span>
+        </h4>								
+     </div>
+      <% @search.each do |f| %>        
+        
+         <div class="col-md-3 col-sm-4 col-xs-12">
           <div id="user-<%= f.id %>">
             <div class="card">
-              <!--<canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>-->
               <div class="avatar">
                 <%= gravatar_for_profile f, size: 50 %> 
               </div>
@@ -22,7 +52,7 @@
                 </p>
 
                 <!-- <p class="text_white m-t-14">
-                  <%=  truncate(f.bio, length: 30) %>
+                  <%=  truncate(f.bio, length: 20) %>
                 </p> -->
 
                 <p class="text_white m-t-14">
@@ -62,10 +92,12 @@
             </div>
           </div>
         </div>
-     <% end %>
+       
+      <% end %>
     <% else %>
-    <%= render('shared/no_resource', resources: 'Followers') %>
+        
+        <h2 style="color: red; margin-top: 100px;" class="text-center"> Your search yielded no results </h2>
     <% end %>
   </div>
-  <%= paginate @followers %>
+  <%= paginate @search %>
 </div>

@@ -28,6 +28,9 @@ gem 'fog'
 # For pagination
 gem 'kaminari'
 
+# For search
+gem 'searchkick'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
 # Use jquery as the JavaScript library

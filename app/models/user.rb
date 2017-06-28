@@ -13,6 +13,8 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_follower
 
+  searchkick word_middle: [:search_data]
+
   private 
 
   def normalize_fields
@@ -25,7 +27,21 @@ class User < ApplicationRecord
     github.downcase! unless github.blank?
   end
 
-  # def lower_case_fields
-  #   # website.downcase! unless website.blank?
-  # end
+  # Search params used
+  # by searchkick
+  def search_data
+    {
+      first_name: full_name,
+      city: city,
+      state: state,
+      country: country
+    }
+  end
+
+  # Return the full name of 
+  # the use for searching
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 end

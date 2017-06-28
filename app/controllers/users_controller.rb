@@ -4,13 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:update, :connections]
 
   def index
-    @users = User.all #.order(:created_at).page(params[:page])
-
-    # if params[:search]
-    #   @users = User.search(params[:search]).order("created_at DESC")
-    # else
-    #   @users = User.all.order("created_at DESC")
-    # end
+    @users = User.all
   end
 
   def show; end
@@ -19,9 +13,6 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = User.find(params[:user_id])
-    # @last_sign_in = @user.last_sign_in_at
-    # @sign_in_count = @user.sign_in_count
-    # @created_at = @user.created_at
     @following = @user.follow_count
     @followers = @user.followers_count
   end
