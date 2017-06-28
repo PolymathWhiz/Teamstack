@@ -6,17 +6,8 @@
 
 <% if user_signed_in? %>
 
-<% if @sign_in_count == 1 %>
-    <p> Welcome to Codezen </p>
-<% end %>
-  
     Logged in as <strong><%= truncate_user_name(current_user.first_name, current_user.last_name, 30) %></strong>.
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 
 <% end %>
-
-<%= form_tag(search_index_path, :method => "get", class: "form-grou[") do %>
-              <%= text_field_tag :search, params[:search], placeholder: "Search for people or skill" %>
-             <%= submit_tag "Search", :name => nil %>
-          <% end %>

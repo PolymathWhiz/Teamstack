@@ -27,17 +27,21 @@ class User < ApplicationRecord
     github.downcase! unless github.blank?
   end
 
+  # Search params used
+  # by searchkick
   def search_data
     {
-      first_name: first_name,
-      last_name: last_name,
+      first_name: full_name,
       city: city,
       state: state,
       country: country
     }
   end
 
-  # def lower_case_fields
-  #   # website.downcase! unless website.blank?
-  # end
+  # Return the full name of 
+  # the use for searching
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 end
