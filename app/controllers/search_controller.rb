@@ -14,6 +14,6 @@ class SearchController < ApplicationController
     end
     @total = @search.total_count
     @time = @search.took
-    @search = Kaminari.paginate_array(@search).page(params[:page]).per(10) # Paginates the results
+    @search = Kaminari.paginate_array(@search).page(params[:page]).per(12) # Paginates the results
   end
 end
