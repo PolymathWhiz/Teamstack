@@ -13,6 +13,8 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_follower
 
+  searchkick word_middle: [:search_data]
+
   private 
 
   def normalize_fields
@@ -23,6 +25,16 @@ class User < ApplicationRecord
     twitter.downcase! unless twitter.blank?
     linkedin.downcase! unless linkedin.blank?
     github.downcase! unless github.blank?
+  end
+
+  def search_data
+    {
+      first_name: first_name,
+      last_name: last_name,
+      city: city,
+      state: state,
+      country: country
+    }
   end
 
   # def lower_case_fields

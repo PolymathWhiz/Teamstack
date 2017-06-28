@@ -16,7 +16,7 @@
 
 <% end %>
 
-<%= form_tag(users_path, :method => "get", class: "navbar-form") do %>
-              <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+<%= form_tag(search_index_path, :method => "get", class: "form-grou[") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Search for people or skill" %>
              <%= submit_tag "Search", :name => nil %>
           <% end %>
