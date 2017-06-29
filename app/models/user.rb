@@ -12,6 +12,9 @@ class User < ApplicationRecord
 
   acts_as_followable
   acts_as_follower
+  
+  has_many :skills
+  accepts_nested_attributes_for :skills
 
   searchkick word_middle: [:search_data]
 

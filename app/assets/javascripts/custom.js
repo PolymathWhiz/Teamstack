@@ -1,7 +1,3 @@
-$(document).ready(function() {
-    $(".country_select").select2();
-});
-
 //Override the default confirm dialog by rails
 $.rails.allowAction = function(link) {
     if (link.data("confirm") == undefined) {
@@ -40,6 +36,8 @@ $(document).on('turbolinks:click', function() {
 $(document).on('turbolinks:render', function() {
     NProgress.done();
     NProgress.remove();
+    $('.country_select').select2(); // Country selector
+    $('.selectpicker').selectpicker(); // Skill selector
 });
 
 // Character Counter
