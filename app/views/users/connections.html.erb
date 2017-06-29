@@ -20,7 +20,7 @@
         <div class="form-group">
           <%= f.label :skill %>
           
-          <%= f.select(:skills, options_for_select(skill_select, current_user.skills), {prompt: "Nothing Selected"}, { multiple: true, class: "form-control selectpicker"} ) %>
+          <%= f.select(:skills, options_for_select(skill_select, current_user.skills), {}, { multiple: true, class: "form-control selectpicker"} ) %>
 
         </div>
 
