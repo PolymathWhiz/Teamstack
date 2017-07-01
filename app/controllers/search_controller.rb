@@ -8,9 +8,9 @@ class SearchController < ApplicationController
     where = {}
     where[:city] = city.capitalize unless !city.present?
     if search.present? && city.present?
-        @search = User.search(search, fields: [:first_name], misspellings: false, where: { city: where[:city] } )
+        @search = User.search(search, fields: [:first_name, :name], misspellings: false, where: { city: where[:city] } )
     else
-       @search = User.search(search, fields: [:first_name], misspellings: false)
+       @search = User.search(search, fields: [:first_name, :name], misspellings: false)
     end
     @total = @search.total_count
     @time = @search.took

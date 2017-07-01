@@ -13,9 +13,9 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_follower
   
-  has_many :skills
-  accepts_nested_attributes_for :skills
-
+  has_one :skill, dependent: :destroy
+  accepts_nested_attributes_for :skill, allow_destroy: true, reject_if: :all_blank, update_only: true
+  
   searchkick word_middle: [:search_data]
 
   private 
@@ -31,13 +31,11 @@ class User < ApplicationRecord
   end
 
   # Search params used
-  # by searchkick
+  # by searchkick gem
   def search_data
     {
       first_name: full_name,
-      city: city,
-      state: state,
-      country: country
+      city: city
     }
   end
 

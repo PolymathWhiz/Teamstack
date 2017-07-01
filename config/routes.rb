@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     resources :users, except: [:edit, :destroy, :create] do 
       get '/dashboard', to: 'users#dashboard'
-
+      
       member do
         get :followers, :following
       end

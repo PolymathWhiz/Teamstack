@@ -17,12 +17,14 @@
       
         <%= render 'shared/error_messages', object: f.object %>
 
-        <div class="form-group">
-          <%= f.label :skill %>
-          
-          <%= f.select(:skills, options_for_select(skill_select, current_user.skills), {}, { multiple: true, class: "form-control selectpicker"} ) %>
-
-        </div>
+  
+         <%= f.fields_for :skill, @skill do |ff| %>
+         
+         <div class="form-group">
+            <%= ff.label :name, "Primary Skill" %>
+            <%= ff.select :name, options_for_select(skill_select, current_user.skill.name), { prompt: "Select a Skill" }, class: "form-control country_select" %>
+         </div>
+        <% end %>
 
         <div class="form-group">
           <%= f.label :bio %>

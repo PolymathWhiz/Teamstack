@@ -9,12 +9,17 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def connections; end
+  def connections
+    # Creates a skill first 
+    # time but updates other times
+    @skill = current_user.build_skill unless current_user.skill
+  end
 
   def dashboard
     @user = User.find(params[:user_id])
     @following = @user.follow_count
     @followers = @user.followers_count
+    # @skill = @user.skill
   end
 
   def following
@@ -28,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update_attributes(user_params)
       flash[:success] = "Your profile has been updated successfully."
       redirect_to user_dashboard_path(current_user)
     else 
@@ -47,6 +52,17 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:city, :state, :country, :bio, :github, :linkedin, :twitter, :website, :avaliable)
+    params.require(:user).permit(
+      :city, 
+      :state, 
+      :country, 
+      :bio, 
+      :github, 
+      :linkedin, 
+      :twitter, 
+      :website, 
+      :avaliable, 
+      skill_attributes: [:id, :name]
+    )
   end
 end
