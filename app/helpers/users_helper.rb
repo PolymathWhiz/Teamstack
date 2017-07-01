@@ -5,7 +5,7 @@ module UsersHelper
   end
 
   def skill_select
-    ['Web Developer', 'Marketer', 'Designer', 'Mobile Developer', 'VR Developer', 'Investor', 'Other']
+    ['Web Developer', 'Marketer', 'Designer', 'Virtual Reality Developer', 'Investor', 'Animated Video & Infographics', 'Content Development & Writing', 'iOS Developer', 'Android Developer', 'Database Administrator/Planner','Others']
   end
   
   def avaliability
