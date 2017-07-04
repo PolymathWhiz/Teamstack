@@ -45,16 +45,18 @@
             <% if !@user.twitter.blank? || 
                   !@user.website.blank? || 
                   !@user.github.blank? || 
-                  !@user.linkedin.blank?  %>
-
+                  !@user.linkedin.blank? ||
+                  !@user.city.blank? ||
+                  !@user.country.blank? ||
+                  !@user.state.blank? %>
               <div class="links">
                 <% if !@user.twitter.blank? %>
                   <a href="https://www.twitter.com/<%= @user.twitter%>" class="web_links" target="_blank" title="Twitter">
                     <i class="fa fa-twitter-square fa-lg fa-fw"></i>
                   </a>
                 <% end %>
-                <% if !@user.twitter.blank? %>
-                  <a href="<%= @user.website%>" class="web_links" target="_blank" title="Website">
+                <% if !@user.website.blank? %>
+                  <a href="<%=@user.website%>" class="web_links" target="_blank" title="Website">
                     <i class="fa fa-link fa-lg fa-fw"></i>
                   </a>  
                 <% end %>
@@ -67,7 +69,7 @@
                   <a href="https://www.linkedin.com/<%= @user.linkedin%>" class="web_links" target="_blank" title="LinkedIn">
                     <i class="fa fa-linkedin-square fa-lg fa-fw"></i>
                   </a>
-                <% end %>  <br>
+                <% end %>
                 
                 <% if !@user.city.blank? || !@user.state.blank? || !@user.country.blank? %>
                   <div class="m-t-14">
@@ -84,17 +86,19 @@
                   <%= member_time %>
             </div>
             
-            <button type="button" class="btn btn-lg btn-outline btn-primary btn_contact" title="Contact <%= @user.first_name %>"> 
-              <i class="fa fa-envelope fa-fw"></i>
-              Contact <%= @user.first_name %>
-            </button>
+            <% if !is_current_user?(@user) %>
+              <a href="mailto:<%=@user.email%>" class="btn btn-lg btn-outline btn-primary btn_contact" title="Contact <%= @user.first_name %>"> 
+                <i class="fa fa-envelope fa-fw"></i>
+                Contact <%= @user.first_name %>
+              </a>
+            <% end %>
           </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container-fluid" style="padding: 19px 20px 20px; margin-top: -30px; margin-bottom: 30px; background-color: #f5f5f5; border-bottom: 1px solid #eee; border-top: 1px solid #eee;">
+<div class="container-fluid" style="padding: 19px 20px 20px; margin-top: -30px; margin-bottom: 30px; background-color: #f5f5f5;                                                   border-bottom: 1px solid #eee; border-top: 1px solid #eee;">
   <div class="container">
     <div class="row">
       <div class="col-md-12">  
@@ -116,7 +120,7 @@
             </a>
           </li>
         </ul>
-        <span class="pull-right col-md-4 hidden-xs hidden-sm"> <b> Software Developer, Marketer, Student </b> </span>
+        <span class="pull-right col-md-4 hidden-xs hidden-sm"> <span class="skill_wrapper"> Skill:</span> <b class="badge"> <%= @user_skill %> </b> </span>
       </div>
     </div>
   </div>
@@ -124,22 +128,70 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <h2>
-        Skills
+    <div class="col-md-8">
+      <h3>
+        Skill
+      </h3> <br>
+      <span class="skill"><%= @user_skill %></span>
+      <hr class="divider"></hr>
+    <% if !@user.twitter.blank? || 
+          !@user.website.blank? || 
+          !@user.github.blank? || 
+          !@user.linkedin.blank? %>
 
-        <%# @skill.each do |f| %>
-          <%#= f.name %>
-        <%# end %>
-
-      </h2>
+      <h3>More Info </h3>
+      <div class="social_media">
+        <% if !@user.twitter.blank? %>
+                  <a href="https://www.twitter.com/<%= @user.twitter%>" target="_blank" title="Twitter">
+                    <i class="fa fa-twitter fa-lg fa-fw"></i>
+                  </a>
+        <% end %>
+        <% if !@user.website.blank? %>
+          <a href="<%=@user.website%>" target="_blank" title="Website">
+            <i class="fa fa-link fa-lg fa-fw"></i>
+          </a>  
+        <% end %>
+        <% if !@user.github.blank? %>
+          <a href="https://www.github.com/<%= @user.twitter%>" target="_blank" title="GitHub">
+            <i class="fa fa-github fa-lg fa-fw"></i>
+          </a>  
+        <% end %>
+        <% if !@user.linkedin.blank? %>
+          <a href="https://www.linkedin.com/<%= @user.linkedin%>" target="_blank" title="LinkedIn">
+            <i class="fa fa-linkedin fa-lg fa-fw"></i>
+          </a>
+        <% end %>
+      </div>
     </div>
-    <div class="col-md-4 col-md-offset-4">
-      
-      <!-- Visible on larger devices -->
-      <div class="panel panel-default visible-md visible-lg">
+  <% end %>
+
+    <% if is_current_user?(@user) %>
+    
+      <div class="col-md-4">
+        <!-- Visible on larger devices -->
+        <div class="panel panel-default visible-md visible-lg">
+            <div class="panel-heading">
+              <h3 class="panel-title">Search Teamstack</h3>
+            </div>
+            <div class="panel-body">
+              <%= form_tag(search_index_path, :method => "get") do %>
+                <div class="form-group">
+                  <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for people or skill", maxlength: 30 %>
+                </div>
+                <div class="form-group">
+                  <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "Search by city", maxlength: 30 %>
+                </div>
+                
+                  <%= submit_tag "Search", name: nil, class: "btn btn-zen btn-block" %>
+        
+              <% end %>
+            </div>
+        </div>
+
+          <!-- Visible on smaller devices -->
+        <div class="panel panel-default visible-sm visible-xs" style="margin-top: 40px; margin-bottom: 40px;">
           <div class="panel-heading">
-            <h3 class="panel-title">Search Teamstack</h3>
+              <h3 class="panel-title">Search Teamstack</h3>
           </div>
           <div class="panel-body">
             <%= form_tag(search_index_path, :method => "get") do %>
@@ -149,33 +201,27 @@
               <div class="form-group">
                 <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "Search by city", maxlength: 30 %>
               </div>
-              
+                
                 <%= submit_tag "Search", name: nil, class: "btn btn-zen btn-block" %>
-      
+        
             <% end %>
-          </div>
-      </div>
-
-        <!-- Visible on smaller devices -->
-      <div class="panel panel-default visible-sm visible-xs" style="margin-top: 40px; margin-bottom: 40px;">
-        <div class="panel-heading">
-            <h3 class="panel-title">Search Teamstack</h3>
+            </div>
         </div>
-        <div class="panel-body">
-          <%= form_tag(search_index_path, :method => "get") do %>
-            <div class="form-group">
-              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for people or skill", maxlength: 30 %>
-            </div>
-            <div class="form-group">
-              <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "Search by city", maxlength: 30 %>
-            </div>
-              
-              <%= submit_tag "Search", name: nil, class: "btn btn-zen btn-block" %>
-      
+
+      <% end %>
+
+      <% if !is_current_user?(@user) %>
+                
+        <% if @user.followed_by?(current_user) %>
+          <%= form_tag unfollow_path(user_id: @user.id), method: :post, remote: true do %>
+            <%= button_tag 'unfollow', class: 'btn btn-lg btn- btn-primary btn_contact' %>
           <% end %>
-          </div>
-      </div>
-      
+        <% else %>
+          <%= form_tag follow_path(user_id: @user.id), method: :post, remote: true do %>
+            <%= button_tag 'follow', class: 'btn btn-lg btn-success btn_contact' %>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

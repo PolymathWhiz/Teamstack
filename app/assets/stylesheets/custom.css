@@ -244,6 +244,17 @@ a>.profile_value:hover {
     margin-bottom: -10px;
 }
 
+.skill {
+    color: #5199FC;
+    font-size: 15px;
+    margin-top: -16px;
+    line-height: 1.0625rem;
+}
+
+.skill_wrapper {
+    font-size: 16px;
+}
+
 
 /* Form aspect */
 

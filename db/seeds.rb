@@ -7,7 +7,7 @@ User.create!(first_name:  "Miracle",
              github: "polymathwhiz"        
              )
 
-1000.times do |n|
+100.times do |n|
   first_name  = Faker::Name.name
   last_name = Faker::Name.name
   email = "user-#{n+1}@codezen.xyz"
@@ -23,7 +23,7 @@ end
 
 users = User.all
 user  = users.first
-following = users[2..990]
-followers = users[3..985]
+following = users[2..80]
+followers = users[3..89]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
