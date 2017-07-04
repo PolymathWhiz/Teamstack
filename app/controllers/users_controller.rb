@@ -19,7 +19,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     @following = @user.follow_count
     @followers = @user.followers_count
-    # @skill = @user.skill
+      if @user.skill.nil?
+        @user_skill = 'No skill set'
+      else
+        @user_skill = @user.skill.name
+      end
   end
 
   def following

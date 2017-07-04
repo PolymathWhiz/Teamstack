@@ -21,21 +21,12 @@
                   <%= truncate_user_name(f.first_name, f.last_name, 20) %>
                 </p>
 
-                <!-- <p class="text_white m-t-14">
-                  <%=  truncate(f.bio, length: 30) %>
-                </p> -->
-
-                <p class="text_white m-t-14">
-                  Software Developer
-                </p>
-
                 <% if !f.city.blank? || !f.state.blank? || !f.country.blank? %>
                   <p class="text_white m-t-14">
                     <i class="fa fa-map-marker fa-lg fa-fw"></i>
                     <%= city(f) %> <%= state(f) %> <%= country(f) %> 
                   </p>
                 <% end %>
-
 
                 <div class="follow m-t-14">
                 <% if !is_current_user?(f) %>

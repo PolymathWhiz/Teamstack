@@ -5,11 +5,11 @@ module UsersHelper
   end
 
   def skill_select
-    ['Web Developer', 'Marketer', 'Designer', 'Virtual Reality Developer', 'Investor', 'Animated Video & Infographics', 'Content Development & Writing', 'iOS Developer', 'Android Developer', 'Database Administrator/Planner','Others']
+    ['Web Developer', 'Marketer', 'Designer', 'Virtual Reality Developer', 'Investor', 'Animated Video & Infographics', 'Content Development & Writing', 'iOS Developer', 'Android Developer', 'Database Specialist','Others']
   end
   
   def avaliability
-    [ ['Avaliable for work', true], ['Not avaliable for work', false] ]
+    [ ['Avaliable', true], ['Not avaliable', false] ]
   end
 
   def countries
