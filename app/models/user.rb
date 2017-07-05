@@ -13,9 +13,6 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_follower
   
-  has_one :skill, dependent: :destroy
-  accepts_nested_attributes_for :skill, allow_destroy: true, reject_if: :all_blank, update_only: true
-  
   searchkick word_middle: [:search_data]
 
   private 
@@ -35,7 +32,8 @@ class User < ApplicationRecord
   def search_data
     {
       first_name: full_name,
-      city: city
+      city: city,
+      skill: skill
     }
   end
 

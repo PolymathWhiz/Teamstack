@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629090430) do
+ActiveRecord::Schema.define(version: 20170705215804) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -31,14 +31,6 @@ ActiveRecord::Schema.define(version: 20170629090430) do
     t.datetime "updated_at"
     t.index ["followable_id", "followable_type"], name: "fk_followables"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
-  end
-
-  create_table "skills", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_skills_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,8 +60,13 @@ ActiveRecord::Schema.define(version: 20170629090430) do
     t.integer  "failed_attempts",        default: 0,    null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "skill"
+    t.index ["city"], name: "index_users_on_city"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name"], name: "index_users_on_first_name"
+    t.index ["last_name"], name: "index_users_on_last_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["skill"], name: "index_users_on_skill"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
