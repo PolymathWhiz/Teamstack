@@ -10,9 +10,6 @@ class UsersController < ApplicationController
   def show; end
 
   def connections
-    # Creates a skill first 
-    # time but updates other times
-    @skill = current_user.build_skill unless current_user.skill
   end
 
   def dashboard
@@ -22,7 +19,7 @@ class UsersController < ApplicationController
       if @user.skill.nil?
         @user_skill = 'No skill set'
       else
-        @user_skill = @user.skill.name
+        @user_skill = @user.skill
       end
   end
 
@@ -66,7 +63,7 @@ class UsersController < ApplicationController
       :twitter, 
       :website, 
       :avaliable, 
-      skill_attributes: [:id, :name]
+      :skill
     )
   end
 end
