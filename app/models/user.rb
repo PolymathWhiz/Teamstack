@@ -15,6 +15,8 @@ class User < ApplicationRecord
   
   searchkick word_middle: [:search_data]
 
+  has_many :feedbacks
+
   private 
 
   def normalize_fields
