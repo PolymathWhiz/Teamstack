@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   devise_scope :users do
     get 'users/connections', to: 'users#connections'
+    get 'users/account_log', to: 'users#account_log'
     
     resources :users, except: [:edit, :destroy, :create] do 
       get '/dashboard', to: 'users#dashboard'

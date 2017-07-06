@@ -68,7 +68,7 @@
                 <% end %>
                 
                 <% if !@user.city.blank? || !@user.state.blank? || !@user.country.blank? %>
-                  <div class="m-t-14">
+                  <div class="m-t-14" style="margin-bottom: -20px;">
                     <span class="text_white "> 
                       <i class="fa fa-map-marker fa-lg fa-fw"></i>
                       <%= city(@user) %><%= state(@user) %><%= country(@user) %>
@@ -78,17 +78,14 @@
               </div>
             <% end %> 
             
-            <% if is_current_user?(@user)%>
-            <div class="member text_white">
-                  <%= member_time %>
-            </div>
-            <% end %>
-            
-            <% if !is_current_user?(@user) %>
+            <% if !is_current_user?(@user) && @user.avaliable? %>
+              <br>
+            <div style="margin-top: -15px;">
               <a href="mailto:<%=@user.email%>" class="btn btn-lg btn-outline btn-primary btn_contact" title="Contact <%= @user.first_name %>"> 
                 <i class="fa fa-envelope fa-fw"></i>
                 Contact <%= @user.first_name %>
               </a>
+            </div>
             <% end %>
           </div>
       </div>

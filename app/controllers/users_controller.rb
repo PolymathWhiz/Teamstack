@@ -11,6 +11,9 @@ class UsersController < ApplicationController
 
   def connections
   end
+  
+  def account_log
+  end
 
   def dashboard
     @user = User.find(params[:user_id])
