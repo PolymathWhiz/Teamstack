@@ -31,11 +31,7 @@
               <span class="m-t-14 text_name text_white">
                 <%= truncate_user_name(@user.first_name, @user.last_name, 30) %>
               </span>
-
-              <div class="text_email text_white">
-                <%= @user.email %>
-              </div>
-
+              
             <% unless @user.bio.blank? %>
               <div class="m-t-14">
                 <span class="text_white"> <%= bio %> </span>
@@ -79,12 +75,14 @@
                     </span>
                   </div>  
                 <% end %>
-                
               </div>
             <% end %> 
+            
+            <% if is_current_user?(@user)%>
             <div class="member text_white">
                   <%= member_time %>
             </div>
+            <% end %>
             
             <% if !is_current_user?(@user) %>
               <a href="mailto:<%=@user.email%>" class="btn btn-lg btn-outline btn-primary btn_contact" title="Contact <%= @user.first_name %>"> 
@@ -129,42 +127,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <h3>
-        Skill
-      </h3> <br>
+      <h3>Skill</h3> <br>
       <span class="skill"><%= @user_skill %></span>
-      <hr class="divider"></hr>
-    <% if !@user.twitter.blank? || 
-          !@user.website.blank? || 
-          !@user.github.blank? || 
-          !@user.linkedin.blank? %>
-
-      <h3>More Info </h3>
-      <div class="social_media">
-        <% if !@user.twitter.blank? %>
-                  <a href="https://www.twitter.com/<%= @user.twitter%>" target="_blank" title="Twitter">
-                    <i class="fa fa-twitter fa-lg fa-fw"></i>
-                  </a>
-        <% end %>
-        <% if !@user.website.blank? %>
-          <a href="<%=@user.website%>" target="_blank" title="Website">
-            <i class="fa fa-link fa-lg fa-fw"></i>
-          </a>  
-        <% end %>
-        <% if !@user.github.blank? %>
-          <a href="https://www.github.com/<%= @user.twitter%>" target="_blank" title="GitHub">
-            <i class="fa fa-github fa-lg fa-fw"></i>
-          </a>  
-        <% end %>
-        <% if !@user.linkedin.blank? %>
-          <a href="https://www.linkedin.com/<%= @user.linkedin%>" target="_blank" title="LinkedIn">
-            <i class="fa fa-linkedin fa-lg fa-fw"></i>
-          </a>
-        <% end %>
-      </div>
     </div>
-  <% end %>
-
+    
     <% if is_current_user?(@user) %>
     
       <div class="col-md-4">
@@ -176,7 +142,7 @@
             <div class="panel-body">
               <%= form_tag(search_index_path, :method => "get") do %>
                 <div class="form-group">
-                  <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for people or skill", maxlength: 30 %>
+                 <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for people or skill", maxlength: 30 %>
                 </div>
                 <div class="form-group">
                   <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "Search by city", maxlength: 30 %>
@@ -187,6 +153,7 @@
               <% end %>
             </div>
         </div>
+      </div>
 
           <!-- Visible on smaller devices -->
         <div class="panel panel-default visible-sm visible-xs" style="margin-top: 40px; margin-bottom: 40px;">
@@ -207,21 +174,57 @@
             <% end %>
             </div>
         </div>
-
-      <% end %>
-
-      <% if !is_current_user?(@user) %>
-                
-        <% if @user.followed_by?(current_user) %>
-          <%= form_tag unfollow_path(user_id: @user.id), method: :post, remote: true do %>
-            <%= button_tag 'unfollow', class: 'btn btn-lg btn- btn-primary btn_contact' %>
-          <% end %>
-        <% else %>
-          <%= form_tag follow_path(user_id: @user.id), method: :post, remote: true do %>
-            <%= button_tag 'follow', class: 'btn btn-lg btn-success btn_contact' %>
+        
+      <%else%>
+      
+        <% if !is_current_user?(@user) %>
+              
+          <% if @user.followed_by?(current_user) %>
+            <%= form_tag unfollow_path(user_id: @user.id), method: :post, remote: true do %>
+               <button name="button" type="submit" class="btn btn-success btn_contact">Unfollow <%= @user.first_name %></button>
+            <% end %>
+          <% else %>
+            <%= form_tag follow_path(user_id: @user.id), method: :post, remote: true do %>
+              <button name="button" type="submit" class="btn btn-primary btn_contact">Follow <%= @user.first_name %></button>
+            <% end %>
           <% end %>
         <% end %>
+        
       <% end %>
-    </div>
+    </div>       
+          <% if !@user.twitter.blank? || 
+                !@user.website.blank? || 
+                !@user.github.blank? || 
+                !@user.linkedin.blank? %>
+          
+      <div class="row" style="margin-bottom: 100px;"> <hr>
+        <div class="col-md-8">
+        <h3>Social Links </h3>
+        <div class="social_media">
+          <% if !@user.twitter.blank? %>
+                    <a href="https://www.twitter.com/<%= @user.twitter%>" target="_blank" title="Twitter">
+                      <i class="fa fa-twitter fa-lg fa-fw"></i>
+                    </a>
+          <% end %>
+          <% if !@user.website.blank? %>
+            <a href="<%=@user.website%>" target="_blank" title="Website">
+              <i class="fa fa-link fa-lg fa-fw"></i>
+            </a>  
+          <% end %>
+          <% if !@user.github.blank? %>
+            <a href="https://www.github.com/<%= @user.twitter%>" target="_blank" title="GitHub">
+              <i class="fa fa-github fa-lg fa-fw"></i>
+            </a>  
+          <% end %>
+          <% if !@user.linkedin.blank? %>
+            <a href="https://www.linkedin.com/<%= @user.linkedin%>" target="_blank" title="LinkedIn">
+              <i class="fa fa-linkedin fa-lg fa-fw"></i>
+            </a>
+          <% end %>
+        </div>
+      </div>
+      </div>
+    <% end %>
+
   </div>
 </div>

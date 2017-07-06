@@ -33,11 +33,11 @@
                 
                     <% if f.followed_by?(current_user) %>
                       <%= form_tag unfollow_path(user_id: f.id), method: :post, remote: true do %>
-                        <%= button_tag 'unfollow', class: 'btn btn-primary' %>
+                        <%= button_tag 'unfollow', class: 'btn btn-success' %>
                       <% end %>
                     <% else %>
                       <%= form_tag follow_path(user_id: f.id), method: :post, remote: true do %>
-                        <%= button_tag 'follow', class: 'btn btn-success' %>
+                        <%= button_tag 'follow', class: 'btn btn-default' %>
                       <% end %>
                     <% end %>
                   
