@@ -20,10 +20,17 @@ module UtilHelper
   end
 
   def member_time
-    since = @user.created_at.to_date.to_s(:long)
-    return "Member since #{since}"
+    since = current_user.created_at.to_date.to_s(:long)
   end
-
+  
+  def last_signed_in_ip
+    ip = current_user.last_sign_in_ip
+  end
+  
+  def current_sign_in_ip
+    ip = current_user.current_sign_in_ip
+  end
+  
   def bio
     @user.bio 
   end

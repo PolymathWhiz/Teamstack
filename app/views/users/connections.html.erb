@@ -9,8 +9,8 @@
 
     <div class="col-md-5 col-md-offset-1">
 
-      <h2 class="user_header text-center" style="margin-bottom: 20px;">Personal settings 
-        <span class="btn btn-default user_header">Connection settings</span>
+      <h2 class="user_header text-center" style="margin-bottom: 20px;">
+        Connections settings 
       </h2>
 
       <%= form_for(current_user, url: users_connections_path , html: { method: :put }) do |f| %>
@@ -53,7 +53,7 @@
 
         <div class="form-group">
           <%= f.label :avaliable, "Availability" %>
-          <%= f.select :avaliable, options_for_select(avaliability, current_user.avaliable?), { prompt: "Select status" }, class: "form-control country_select" %>
+          <%= f.select :avaliable, options_for_select(avaliability, current_user.avaliable?), {}, class: "form-control country_select" %>
           <p class="help-block">When set to "Avaliable", a contact button will be displayed on your profile.</p>
         </div>
 
