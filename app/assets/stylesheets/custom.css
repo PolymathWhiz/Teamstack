@@ -121,8 +121,8 @@ i.glyphicon.glyphicon-search {
     margin-top: -20px;
     background-color: #fafafa !important;
     /*background: linear-gradient(-90deg, #1b5a90, #00AEEF);*/
-    background: -webkit-linear-gradient(left, #145199, #00285c, #053774);
-    background: linear-gradient(to right, #145199, #00285c, #053774);
+    background: -webkit-linear-gradient(left, #145199, #053774);
+    background: linear-gradient(to right, #145199, #053774);
     background-size: 600% 100%;
     -webkit-animation: HeroBG 20s ease infinite;
     animation: HeroBG 20s ease infinite;
