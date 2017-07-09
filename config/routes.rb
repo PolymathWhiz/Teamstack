@@ -37,4 +37,12 @@ Rails.application.routes.draw do
   match :follow, to: 'follows#create', as: :follow, via: :post
   match :unfollow, to: 'follows#destroy', as: :unfollow, via: :post
   
+  # Admin section
+  namespace :admin do
+    root 'home#index'
+    resources :contacts, except: [:show]
+    resources :feedbacks, except: [:show]
+    resources :users, except: [:show]
+  end
+  
 end

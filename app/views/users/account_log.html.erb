@@ -1,0 +1,38 @@
+<% provide(:title, "Edit Connections") %>
+
+<div class="container">
+
+  <%= render 'shared/flash_message' %>
+
+  <div class="row">
+    <%= render 'shared/personal_settings' %>
+
+    <div class="col-md-5 col-md-offset-1">
+
+      <h2 class="user_header text-center" style="margin-bottom: 30px;">
+        Account Log 
+      </h2>
+      
+      <div class="panel panel-default">
+        <div class="panel-body">
+          You've been a member of Teamstack since - <b><%= member_time %></b>
+        </div>
+      </div>
+      
+      <div class="panel panel-default">
+        <div class="panel-body">
+          You signed in last with an IP address of - <b><%= last_signed_in_ip %></b>
+        </div>
+      </div>
+      
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Your current login IP address is - <b><%= current_sign_in_ip %></b>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
