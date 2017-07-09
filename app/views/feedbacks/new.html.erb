@@ -1,0 +1,44 @@
+<% provide(:title, "Feedback") %>
+
+<div class="container" style="margin-top: -10px;">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="page-header">
+        <h2>New Feedback Ticket</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_for(@feedback, url: feedback_path) do |f| %>
+        <%= render 'shared/error_messages', object: f.object%>
+        <%= render 'shared/flash_message'%>
+
+        <div class="form-group">
+          <%= f.label :category%>
+          <%= f.select :category, options_for_select(feedback_category), {prompt: "-- Select a category --"}, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :description, class: "form-control", placeholder: "Description",maxlength: 250, 
+                                          rows: 8, required: false 
+          %>
+          <small class="span_form">250 characters max</small>
+        </div>
+        <%= f.submit "Create Ticket", class: "btn btn-zen btn-block" %>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+
+    <div class="col-md-5 hidden-sm hidden-xs" style="margin-top: 20px;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Tips</h3>
+        </div>
+        <div class="panel-body">
+          Questions come in here
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

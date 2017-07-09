@@ -9,3 +9,7 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+# Precompiling the admin style files seperately
+Rails.application.config.assets.precompile += %w( admin/jquery.js admin/bootstrap.js admin/bootstrap-select.js admin/jquery.slimscroll.js admin/waves.js admin/jquery.countTo admin/admin.js admin/index.js admin/demo.js admin/bootstrap.css admin/waves.css admin/animate.css admin/style.css admin/all-themes.css )
+
