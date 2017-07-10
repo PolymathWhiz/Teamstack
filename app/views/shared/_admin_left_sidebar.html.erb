@@ -14,12 +14,12 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="<%= edit_user_registration_path %>"><i class="material-icons">person</i>Profile</a></li>
                             <li role="seperator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Following</a></li>
+                            <li><a href="<%= followers_user_path(current_user) %>"><i class="material-icons">group</i>Followers</a></li>
+                            <li><a href="<%= following_user_path(current_user) %>"><i class="material-icons">favorite</i>Following</a></li>
                             <li role="seperator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="<%= destroy_user_session_path %>" data-method="delete" rel="nofollow" ><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -30,19 +30,19 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="index.html">
+                        <a href="<%= admin_root_path %>">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="pages/typography.html">
+                        <a href="#">
                             <i class="material-icons">group</i>
                             <span>Users</span>
                         </a>
                     </li>
                     <li>
-                        <a href="pages/typography.html">
+                        <a href="#">
                             <i class="material-icons">mail</i>
                             <span>Contact Messages</span>
                         </a>
@@ -52,6 +52,12 @@
                         <a href="javascript:void(0);">
                             <i class="material-icons col-red">donut_large</i>
                             <span>Bug Report</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-light-blue">donut_large</i>
+                            <span>Feature Request</span>
                         </a>
                     </li>
                     <li>
@@ -72,12 +78,6 @@
                             <span>Other</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-light-blue">donut_large</i>
-                            <span>Feature Request</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
             <!-- #Menu -->
@@ -87,7 +87,7 @@
                     &copy; 2017 <a href="javascript:void(0);">Teamstack | A product of Maplerad</a>.
                 </div>
                 <div class="version">
-                    <b>Version: </b> 1.0.0
+                    <b>Version: </b> Beta
                 </div>
             </div>
             <!-- #Footer -->
