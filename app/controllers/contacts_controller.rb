@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
 
     # Prevents accessing this controller when the user is logged in
     def prevent_route
-      redirect_to user_dashboard_path(current_user) unless current_user.nil?
+      redirect_to current_user unless current_user.nil?
     end
 
     def contact_params

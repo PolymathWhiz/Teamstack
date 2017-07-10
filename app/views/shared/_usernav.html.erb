@@ -15,7 +15,7 @@
             <%= link_to 'Home', root_path, class: "nav_link_text" %>
           </li>
           <li class="nav_li">
-            <%= link_to 'Dashboard', user_dashboard_path(current_user), class: "nav_link_text" %>
+            <%= link_to 'Overview', current_user, class: "nav_link_text" %>
           </li>
           <li class="nav_li">
             <%= link_to 'Information', information_path, class: "nav_link_text" %>
@@ -58,8 +58,13 @@
                     </a>
                     <ul class="dropdown-menu" style="margin-top: 2px;">
                       <li>
-                        <%= link_to 'Your dashboard', user_dashboard_path(current_user) %>
+                        <%= link_to 'Overview', current_user %>
                       </li>
+                      <% if current_user.admin? %>
+                        <li>
+                          <%= link_to 'Admin Dashboard', admin_root_path %>
+                        </li>
+                      <% end %>
                       <li class="divider"></li>
                       <li>
                         <%= link_to 'Edit basic settings', edit_user_registration_path %>

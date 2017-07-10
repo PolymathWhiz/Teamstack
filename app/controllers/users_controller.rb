@@ -2,11 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:following, :followers, :show]
   before_action :correct_user, only: [:update, :connections]
-
-  def index
-    @users = User.all
-  end
-
+  
   def show; end
 
   def connections
@@ -15,8 +11,8 @@ class UsersController < ApplicationController
   def account_log
   end
 
-  def dashboard
-    @user = User.find(params[:user_id])
+  def show
+    @user = User.find(params[:id])
     @following = @user.follow_count
     @followers = @user.followers_count
       if @user.skill.nil?
@@ -39,7 +35,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Your profile has been updated successfully."
-      redirect_to user_dashboard_path(current_user)
+      redirect_to current_user
     else 
       render 'connections'
     end

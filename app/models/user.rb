@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :bio, length: { maximum: 250 }
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
   validates :website, length: { maximum: 200 }
-
+  
   acts_as_followable
   acts_as_follower
   
