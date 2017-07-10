@@ -19,9 +19,7 @@ Rails.application.routes.draw do
     get 'users/connections', to: 'users#connections'
     get 'users/account_log', to: 'users#account_log'
     
-    resources :users, except: [:edit, :destroy, :create] do 
-      get '/dashboard', to: 'users#dashboard'
-      
+    resources :users, except: [:index, :edit, :destroy, :create] do       
       member do
         get :followers, :following
       end
@@ -40,9 +38,9 @@ Rails.application.routes.draw do
   # Admin section
   namespace :admin do
     root 'home#index'
-    resources :contacts, except: [:show]
-    resources :feedbacks, except: [:show]
-    resources :users, except: [:show]
+    resources :contacts, only: [:index, :destroy]
+    resources :feedbacks, only: [:index, :destroy]
+    resources :users, only: [:index, :destroy]
   end
   
 end
