@@ -4,10 +4,6 @@ class Admin::UsersController < Admin::BaseController
     @count = User.all.count
   end
   
-  def show
-    @user  = User.find(params[:id])
-  end
-  
   def destroy
     @user = User.find(params[:id])
     if @user.destroy && !@user.admin?
