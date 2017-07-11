@@ -1,8 +1,8 @@
-<section class="content">
+    <section class="content">
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                  There are <%= pluralize(@count, "user") %> in total.
+                  There are <%= pluralize(@count, "bug") %> in total.
                 </h2>
             </div>
             <!-- Basic Examples -->
@@ -31,38 +31,28 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>UID</th>
+                                            <th>ID</th>
                                             <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Skill</th>
-                                            <th>City</th>
-                                            <th>State</th>
-                                            <th>Country</th>
+                                            <th>Description</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
-                                  <% @users.each do |f|%>
+                                  <% @bugs.each do |f|%>
                                     <tbody>
                                         <tr>
                                             <td> <%= f.id %></td>
-                                            <td><%= f.first_name %> <%= f.last_name %></td>
-                                            <td><%= f.email %></td>
-                                            <td><%= f.skill %></td>
-                                            <td><%= f.city %></td>
-                                            <td><%= f.state %></td>
-                                            <td><%= f.country %></td>
-                                            <% if current_user.admin? && current_user.id != f.id %>
+                                            <td><%= f.user.first_name %> <%= f.user.last_name %></td>
+                                            <td><%= f.description %></td>
+                                            <% if current_user.admin? %>
                                               <td>
-                                                <%= button_to 'Delete', admin_user_path(f) , class: "btn btn-danger waves-effect", method: :delete, data: { confirm: "Are you sure you want to delete this user ?" } %>
+                                                <%= button_to 'Delete', admin_feedback_path(f), class: "btn btn-danger waves-effect", method: :delete, data: { confirm: "Are you sure you want to delete this user ?" } %>
                                               </td>
-                                              <% else %>
-                                              <td><a href="#" class="btn btn-primary waves-effect">Your account</a></td>
                                             <% end %>
                                         </tr>
                                     </tbody>
                                   <% end %>
                                 </table>
-                              <%= paginate @users %>
+                              <%= paginate @bugs %>
                             </div>
                         </div>
                     </div>
