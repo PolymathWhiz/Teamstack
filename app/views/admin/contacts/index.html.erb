@@ -198,7 +198,7 @@
                                             <td><%= f.country %></td>
                                             <% if current_user.admin? && current_user.id != f.id %>
                                               <td>
-                                                <%= button_to 'Delete', admin_user_path(f) , class: "btn btn-danger waves-effect", method: :delete, data: { confirm: "Are you sure you want to delete this user ?" } %>
+                                                <%= link_to 'Delete', f, class: "btn btn-danger waves-effect", method: :delete, data: { confirm: "Are you sure you want to delete this user ?" } %>
                                               </td>
                                               <% else %>
                                               <td><a href="#" class="btn btn-primary waves-effect">Your account</a></td>
