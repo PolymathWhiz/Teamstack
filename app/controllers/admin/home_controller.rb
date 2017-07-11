@@ -1,4 +1,5 @@
 class Admin::HomeController < Admin::BaseController
+  # Used in the index count to
   def index
     @user_count = User.all.count
     @total_feedback = Feedback.all.count

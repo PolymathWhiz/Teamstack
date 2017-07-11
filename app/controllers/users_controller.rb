@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @following = @user.follow_count
     @followers = @user.followers_count
       if @user.skill.nil?

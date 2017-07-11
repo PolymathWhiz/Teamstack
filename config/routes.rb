@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'users/connections', to: 'users#connections'
     get 'users/account_log', to: 'users#account_log'
     
-    resources :users, except: [:index, :edit, :destroy, :create] do       
+    resources :users, except: [:index, :edit, :create, :destroy] do       
       member do
         get :followers, :following
       end
