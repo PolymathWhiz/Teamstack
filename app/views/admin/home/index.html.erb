@@ -169,7 +169,27 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <div id="donut_chart" class="dashboard-donut-chart"></div>
+                            <div id="donut_chart" class="dashboard-donut-chart">
+                              
+                              <div class="panel panel-default">
+                                <div class="panel-body">
+                                  You've been a member of Teamstack since - <b><%= member_time %></b>
+                                </div>
+                              </div>
+      
+                              <div class="panel panel-default">
+                                <div class="panel-body">
+                                  You signed in last with an IP address of - <b><%= last_signed_in_ip %></b>
+                                </div>
+                              </div>
+      
+                              <div class="panel panel-default">
+                                <div class="panel-body">
+                                  Your current login IP address is - <b><%= current_sign_in_ip %></b>
+                                </div>
+                              </div>
+                              
+                            </div>
                         </div>
                     </div>
                 </div>

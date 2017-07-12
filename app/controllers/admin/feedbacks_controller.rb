@@ -28,7 +28,7 @@ class Admin::FeedbacksController < Admin::BaseController
     @feedback = Feedback.find(params[:id])
     if @feedback.destroy
       flash[:success] = "Successfully deleted feedback"
-      redirect_to admin_feedback_path
+      redirect_to admin_root_path
     else
       flash[:warning] = "Couldn't delete the feedback"
     end

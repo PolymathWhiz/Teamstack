@@ -2,7 +2,7 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                  There are <%= pluralize(@count, "bug") %> in total.
+                  There are <%= pluralize(@count, "feature request") %> in total.
                 </h2>
             </div>
             <!-- Basic Examples -->
@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                USERS TABLE
+                                FEATURE REQUESTS
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -31,16 +31,17 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>NO</th>
                                             <th>Name</th>
                                             <th>Description</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
-                                  <% @feature_requests.each do |f|%>
+                                  <% @feature_requests.each_with_index do |f, index| %>
+                                    <% index += 1 %>
                                     <tbody>
                                         <tr>
-                                            <td> <%= f.id %></td>
+                                            <td> <%= index %></td>
                                             <td><%= f.user.first_name %> <%= f.user.last_name %></td>
                                             <td><%= f.description %></td>
                                             <% if current_user.admin? %>
