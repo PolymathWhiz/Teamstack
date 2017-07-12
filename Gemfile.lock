@@ -50,6 +50,8 @@ GEM
     arel (7.1.4)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootsnap (1.1.1)
+      msgpack (~> 1.0)
     builder (3.2.3)
     byebug (9.0.6)
     carrierwave (1.1.0)
@@ -268,6 +270,7 @@ GEM
     mini_magick (4.7.2)
     mini_portile2 (2.1.0)
     minitest (5.10.2)
+    msgpack (1.1.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     nio4r (2.1.0)
@@ -367,6 +370,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_follower!
+  bootsnap
   byebug
   carrierwave
   coffee-rails (~> 4.2)
