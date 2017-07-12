@@ -39,14 +39,14 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'home#index'
     resources :contacts, only: [:index, :destroy]
-    resources :feedbacks, only: [:index, :destroy]
+    resources :feedbacks, only: [:destroy]
     resources :users, only: [:index, :destroy]
     
     get 'feedback/bugs', to: 'feedbacks#bug_notice'
-    get 'feedback/help', to: 'feebacks#help'
+    get 'feedback/help', to: 'feedbacks#help'
     get 'feedback/feature_requests', to: 'feedbacks#feature_requests'
     get 'feedback/general_complaints', to: 'feedbacks#general_complaints'
-    get 'feedback/others', to: 'feedbacks#others'
+    get 'feedback/others', to: 'feedbacks#other'
   end
   
 end

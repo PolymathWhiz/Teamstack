@@ -2,7 +2,7 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                  There are <%= pluralize(@count, "user") %> in total.
+                  There are <%= pluralize(@count, "contact message") %> in total.
                 </h2>
             </div>
             <!-- Basic Examples -->
@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                USERS TABLE
+                                CONTACT MESSAGES
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -41,10 +41,11 @@
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
-                                  <% @users.each do |f|%>
+                                  <% @contacts.each_with_index do |f, index|%>
+                                    <% index += 1 %>
                                     <tbody>
                                         <tr>
-                                            <td> <%= f.id %></td>
+                                            <td> <%= index %></td>
                                             <td><%= f.first_name %> <%= f.last_name %></td>
                                             <td><%= f.email %></td>
                                             <td><%= f.skill %></td>
@@ -62,7 +63,7 @@
                                     </tbody>
                                   <% end %>
                                 </table>
-                              <%= paginate @users %>
+                              <%= paginate @contacts %>
                             </div>
                         </div>
                     </div>
